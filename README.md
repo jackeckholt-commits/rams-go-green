@@ -2,6 +2,11 @@
 
 This repository contains the Rams Go Green club website.
 
+**Website:** https://jackeckholt-commits.github.io/rams-go-green/
+
+Changes committed to the `main` branch are published to the website
+automatically by GitHub Pages.
+
 ## Quick edit
 
 **[Edit the club information on GitHub](https://github.com/jackeckholt-commits/rams-go-green/edit/main/content/site.json)**

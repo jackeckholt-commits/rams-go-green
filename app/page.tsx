@@ -1,5 +1,11 @@
 import { siteContent, type Meeting } from "./site-content";
 
+const siteBasePath = process.env.NEXT_PUBLIC_SITE_BASE_PATH ?? "";
+
+function publicAsset(path: string) {
+  return `${siteBasePath}${path}`;
+}
+
 function parseCsvLine(line: string) {
   const values: string[] = [];
   let value = "";
@@ -213,7 +219,10 @@ export default async function Home() {
             <article className="officer-card" key={officer.role}>
               <div className="officer-photo">
                 {officer.photo ? (
-                  <img src={officer.photo} alt={`${officer.name}, ${officer.role}`} />
+                  <img
+                    src={publicAsset(officer.photo)}
+                    alt={`${officer.name}, ${officer.role}`}
+                  />
                 ) : (
                   <span aria-hidden="true">{initials(officer.name)}</span>
                 )}
@@ -237,7 +246,7 @@ export default async function Home() {
           <div className="gallery-grid">
             {siteContent.galleryPhotos.map((photo) => (
               <figure key={photo.src}>
-                <img src={photo.src} alt={photo.alt} />
+                <img src={publicAsset(photo.src)} alt={photo.alt} />
                 {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
               </figure>
             ))}
