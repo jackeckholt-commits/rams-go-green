@@ -3,8 +3,6 @@
   "eyebrow": "A Colorado State University student club",
   "tagline": "Small choices. Stronger community. Greener campus.",
   "intro": "We bring Rams together to care for CSU and Fort Collins through community cleanups, environmental action, and practical sustainability education.",
-  "joinLink": "#join",
-  "contactEmail": "",
   "instagramHandle": "Instagram coming soon",
   "instagramProfileUrl": "",
   "instagramWidgetUrl": "",
@@ -42,24 +40,7 @@
   ],
   "meetings": {
     "googleSheetCsvUrl": "",
-    "fallback": [
-      {
-        "date": "September 1, 2026",
-        "time": "TBD",
-        "location": "TBD",
-        "title": "First club meeting",
-        "details": "Meet the club, hold officer elections, and plan the first month of Rams Go Green activities.",
-        "link": ""
-      },
-      {
-        "date": "September 5, 2026",
-        "time": "TBD",
-        "location": "TBD",
-        "title": "First cleanup after the football game",
-        "details": "Our first hands-on cleanup event. Sign-up details and the meetup location will be posted before the event.",
-        "link": ""
-      }
-    ]
+    "fallback": []
   },
   "galleryPhotos": []
 }

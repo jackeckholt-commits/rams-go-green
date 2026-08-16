@@ -18,14 +18,14 @@ const tasks = [
     number: "01",
     title: "Meetings and site text",
     description:
-      "Change meeting dates, times, locations, club wording, contact details, and Instagram settings.",
+      "Add meeting dates, times, locations, and details. The entire schedule appears automatically after the first event is added.",
     links: [{ label: "Edit site details", href: editContentUrl }],
   },
   {
     number: "02",
     title: "Officer photos",
     description:
-      "Upload the president or vice president photo, then add its file path to the site details. The officer section appears automatically.",
+      "Upload the president or vice president photo, then add its file path to replace that officer's initials.",
     links: [
       { label: "Upload officer photos", href: officerUploadUrl },
       { label: "Edit officer details", href: editContentUrl },

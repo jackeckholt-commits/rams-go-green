@@ -16,15 +16,28 @@ automatically by GitHub Pages.
 The file `content/site.json` contains the meeting schedule, officer names,
 Instagram information, mission, and other routine website text.
 
-To change a meeting:
+To add a meeting:
 
 1. Open the edit link above.
-2. Find the meeting under `"fallback"`.
-3. Replace `TBD` with the real time or location, keeping the quotation marks.
+2. Find the empty `"fallback": []` list.
+3. Add a meeting inside the brackets using this format:
+
+```json
+{
+  "date": "September 1, 2026",
+  "time": "TBD",
+  "location": "TBD",
+  "title": "Club meeting",
+  "details": "Add the meeting details here.",
+  "link": ""
+}
+```
+
 4. Select **Commit changes** at the bottom of the GitHub page.
 
 Use `TBD` for anything that has not been decided yet. Do not remove commas or
-quotation marks.
+quotation marks. The entire meeting area stays hidden while the list is empty
+and appears automatically after the first meeting is added.
 
 ## Add officer photos
 
@@ -33,8 +46,8 @@ quotation marks.
 3. Change the officer's `"photo"` value to a path such as
    `"/officers/president.jpg"`.
 
-The officer area stays hidden while every `"photo"` value is empty. Each
-officer appears automatically after their photo path is added.
+Leave the value empty (`"photo": ""`) to show the officer's initials until a
+photo is ready.
 
 ## Add club photos
 

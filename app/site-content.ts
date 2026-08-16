@@ -14,8 +14,6 @@ type SiteContent = {
   eyebrow: string;
   tagline: string;
   intro: string;
-  joinLink: string;
-  contactEmail: string;
   instagramHandle: string;
   instagramProfileUrl: string;
   instagramWidgetUrl: string;

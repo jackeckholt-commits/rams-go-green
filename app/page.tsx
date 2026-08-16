@@ -68,12 +68,19 @@ async function getMeetings(): Promise<Meeting[]> {
   }
 }
 
+function initials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
 export default async function Home() {
   const meetings = await getMeetings();
   const nextMeeting = meetings[0];
-  const visibleOfficers = siteContent.officers.filter((officer) =>
-    officer.photo.trim(),
-  );
+  const hasMeetings = meetings.length > 0;
 
   return (
     <main>
@@ -86,30 +93,26 @@ export default async function Home() {
         </div>
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
-          <a href="#meetings">Meetings</a>
-          {visibleOfficers.length ? <a href="#officers">Officers</a> : null}
+          {hasMeetings ? <a href="#meetings">Meetings</a> : null}
+          {siteContent.officers.length ? <a href="#officers">Officers</a> : null}
           <a href="#instagram">Instagram</a>
         </nav>
-        <a className="header-cta" href={siteContent.joinLink}>
-          Join the club
-        </a>
       </header>
 
-      <section className="hero" id="top">
+      <section className={`hero${hasMeetings ? "" : " hero-no-meetings"}`} id="top">
         <div className="hero-copy">
           <p className="eyebrow">{siteContent.eyebrow}</p>
           <h1>
             Rams go <em>green.</em>
           </h1>
           <p className="hero-intro">{siteContent.intro}</p>
-          <div className="hero-actions">
-            <a className="button button-light" href={siteContent.joinLink}>
-              Get involved
-            </a>
-            <a className="text-link" href="#meetings">
-              See our next meeting
-            </a>
-          </div>
+          {hasMeetings ? (
+            <div className="hero-actions">
+              <a className="text-link" href="#meetings">
+                See our next meeting
+              </a>
+            </div>
+          ) : null}
         </div>
 
         <div className="hero-art" aria-hidden="true">
@@ -120,18 +123,20 @@ export default async function Home() {
           <p>Grow here.<br />Give back.</p>
         </div>
 
-        <div className="meeting-ribbon">
-          <span className="ribbon-label">Next up</span>
-          <div>
-            <strong>{nextMeeting.title}</strong>
-            <span>
-              {nextMeeting.date} · {nextMeeting.time}
-            </span>
+        {nextMeeting ? (
+          <div className="meeting-ribbon">
+            <span className="ribbon-label">Next up</span>
+            <div>
+              <strong>{nextMeeting.title}</strong>
+              <span>
+                {nextMeeting.date} · {nextMeeting.time}
+              </span>
+            </div>
+            <a href="#meetings" aria-label="View meeting details">
+              View
+            </a>
           </div>
-          <a href="#meetings" aria-label="View meeting details">
-            View
-          </a>
-        </div>
+        ) : null}
       </section>
 
       <section className="statement section-pad" id="about">
@@ -158,48 +163,47 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="meetings section-pad" id="meetings">
-        <div className="meetings-copy">
-          <p className="section-kicker">Come say hello</p>
-          <h2>There&apos;s a seat for you.</h2>
-          <p>
-            We hold one formal planning meeting each month and aim for two or
-            three activities or meetups. No sustainability experience required.
-          </p>
-          <a className="button button-green" href={siteContent.joinLink}>
-            I&apos;m interested
-          </a>
-        </div>
-        <div className="meeting-list">
-          {meetings.map((meeting, index) => (
-            <article className="meeting-card" key={`${meeting.date}-${index}`}>
-              <div className="meeting-number">{String(index + 1).padStart(2, "0")}</div>
-              <div>
-                <p className="meeting-date">{meeting.date}</p>
-                <h3>{meeting.title}</h3>
-                <p>{meeting.details}</p>
-                <dl>
-                  <div>
-                    <dt>Time</dt>
-                    <dd>{meeting.time}</dd>
-                  </div>
-                  <div>
-                    <dt>Place</dt>
-                    <dd>{meeting.location}</dd>
-                  </div>
-                </dl>
-                {meeting.link ? (
-                  <a className="detail-link" href={meeting.link}>
-                    Meeting details
-                  </a>
-                ) : null}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      {hasMeetings ? (
+        <section className="meetings section-pad" id="meetings">
+          <div className="meetings-copy">
+            <p className="section-kicker">Come say hello</p>
+            <h2>There&apos;s a seat for you.</h2>
+            <p>
+              We hold one formal planning meeting each month and aim for two or
+              three activities or meetups. No sustainability experience required.
+            </p>
+          </div>
+          <div className="meeting-list">
+            {meetings.map((meeting, index) => (
+              <article className="meeting-card" key={`${meeting.date}-${index}`}>
+                <div className="meeting-number">{String(index + 1).padStart(2, "0")}</div>
+                <div>
+                  <p className="meeting-date">{meeting.date}</p>
+                  <h3>{meeting.title}</h3>
+                  <p>{meeting.details}</p>
+                  <dl>
+                    <div>
+                      <dt>Time</dt>
+                      <dd>{meeting.time}</dd>
+                    </div>
+                    <div>
+                      <dt>Place</dt>
+                      <dd>{meeting.location}</dd>
+                    </div>
+                  </dl>
+                  {meeting.link ? (
+                    <a className="detail-link" href={meeting.link}>
+                      Meeting details
+                    </a>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-      {visibleOfficers.length ? (
+      {siteContent.officers.length ? (
         <section className="officers section-pad" id="officers">
           <div className="section-heading horizontal-heading">
             <div>
@@ -209,13 +213,17 @@ export default async function Home() {
             <p>Say hi at a meeting—we&apos;d love to meet you.</p>
           </div>
           <div className="officer-grid">
-            {visibleOfficers.map((officer) => (
+            {siteContent.officers.map((officer) => (
               <article className="officer-card" key={officer.role}>
                 <div className="officer-photo">
-                  <img
-                    src={publicAsset(officer.photo)}
-                    alt={`${officer.name}, ${officer.role}`}
-                  />
+                  {officer.photo ? (
+                    <img
+                      src={publicAsset(officer.photo)}
+                      alt={`${officer.name}, ${officer.role}`}
+                    />
+                  ) : (
+                    <span aria-hidden="true">{initials(officer.name)}</span>
+                  )}
                 </div>
                 <p className="officer-role">{officer.role}</p>
                 <h3>{officer.name}</h3>
@@ -273,47 +281,8 @@ export default async function Home() {
         )}
       </section>
 
-      <section className="join section-pad" id="join">
-        <div className="join-art" aria-hidden="true">
-          <span>✦</span>
-        </div>
-        <div>
-          <p className="section-kicker">Ready when you are</p>
-          <h2>Make your time at CSU count.</h2>
-          <p>
-            Active membership is open to every CSU student with no dues.
-            Community partners can join as associate members, and activities
-            are open even if you are not yet an active member.
-          </p>
-          <div className="join-actions">
-            {siteContent.instagramProfileUrl ? (
-              <a
-                className="button button-light"
-                href={siteContent.instagramProfileUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Follow on Instagram
-              </a>
-            ) : (
-              <a className="button button-light" href="#meetings">
-                See upcoming events
-              </a>
-            )}
-            {siteContent.contactEmail ? (
-              <a className="text-link" href={`mailto:${siteContent.contactEmail}`}>
-                Email the club
-              </a>
-            ) : null}
-          </div>
-        </div>
-      </section>
-
       <footer>
-        <div className="brand footer-brand">
-          <span className="brand-mark" aria-hidden="true">RGG</span>
-          <span>{siteContent.clubName}</span>
-        </div>
+        <p className="footer-name">{siteContent.clubName}</p>
         <p>A student-led club at Colorado State University.</p>
         <a href="#top">Back to top</a>
       </footer>

@@ -19,17 +19,16 @@ test("server-renders the Rams Go Green site", async () => {
   const html = await response.text();
   assert.match(html, /<title>Rams Go Green \| Colorado State University<\/title>/i);
   assert.match(html, /Rams go/);
-  assert.match(html, /There[^<]*s a seat for you/);
-  assert.doesNotMatch(html, /Meet the team|Rams making it happen/);
-  assert.doesNotMatch(html, />Jack<|>Sadie<|>Vice President</);
-  assert.doesNotMatch(html, /href="#officers"/);
+  assert.doesNotMatch(html, /There[^<]*s a seat for you|href="#meetings"|id="meetings"/);
+  assert.doesNotMatch(html, /September 1, 2026|September 5, 2026|>TBD</);
+  assert.match(html, /Meet the team|Rams making it happen/);
+  assert.match(html, />Jack<|>Sadie<|>Vice President</);
+  assert.match(html, /href="#officers"/);
   assert.doesNotMatch(html, />Treasurer</);
-  assert.match(html, /September 1, 2026/);
-  assert.match(html, /September 5, 2026/);
-  assert.match(html, />TBD</);
-  assert.doesNotMatch(html, /To be announced|room to be announced/);
   assert.match(html, /From the feed/);
   assert.match(html, /No posts at this time\./);
+  assert.doesNotMatch(html, /Ready when you are|Make your time at CSU count|See upcoming events/);
+  assert.equal((html.match(/class="brand-mark"/g) ?? []).length, 1);
   assert.doesNotMatch(html, /Share the change|Meet your people|Grow something good/);
   assert.doesNotMatch(html, /Rams Go Green home|class="brand" href="#top"/);
   assert.doesNotMatch(
