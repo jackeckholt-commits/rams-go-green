@@ -79,12 +79,12 @@ export default async function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Rams Go Green home">
+        <div className="brand" aria-label="Rams Go Green">
           <span className="brand-mark" aria-hidden="true">
             RGG
           </span>
           <span>{siteContent.clubName}</span>
-        </a>
+        </div>
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
           <a href="#meetings">Meetings</a>
@@ -310,10 +310,10 @@ export default async function Home() {
       </section>
 
       <footer>
-        <a className="brand footer-brand" href="#top">
+        <div className="brand footer-brand">
           <span className="brand-mark" aria-hidden="true">RGG</span>
           <span>{siteContent.clubName}</span>
-        </a>
+        </div>
         <p>A student-led club at Colorado State University.</p>
         <a href="#top">Back to top</a>
       </footer>
