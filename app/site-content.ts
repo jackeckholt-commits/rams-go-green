@@ -29,51 +29,45 @@ export const siteContent = {
   eyebrow: "A Colorado State University student club",
   tagline: "Small choices. Stronger community. Greener campus.",
   intro:
-    "We bring Rams together to learn, take action, and make sustainable living feel practical, social, and rewarding.",
+    "We bring Rams together to care for CSU and Fort Collins through community cleanups, environmental action, and practical sustainability education.",
   joinLink: "#join",
   contactEmail: "",
-  instagramHandle: "@ramsgogreen",
-  instagramProfileUrl: "https://www.instagram.com/",
+  instagramHandle: "Instagram coming soon",
+  instagramProfileUrl: "",
   instagramWidgetUrl: "",
   mission:
-    "Rams Go Green helps students turn concern for the planet into visible action at Colorado State. We create welcoming ways to learn new habits, serve our community, and leave campus better than we found it.",
+    "Our goal is to give students a direct way to contribute to the communities of Colorado State and Fort Collins by cleaning our surroundings, supporting sustainability efforts, and taking part in environmental activism.",
   activities: [
     {
       number: "01",
-      title: "Campus action",
+      title: "Community cleanups",
       description:
-        "Join cleanups, waste-reduction projects, and hands-on events that make a difference you can see.",
+        "Pick up litter after events, join larger cleanup days, and help leave campus and Fort Collins better than we found them.",
     },
     {
       number: "02",
-      title: "Sustainable living",
+      title: "Education & action",
       description:
-        "Swap realistic tips on food, transportation, energy, reuse, and low-waste student life.",
+        "Build awareness through flyers, conversations, and hands-on activities that make environmentalism approachable.",
     },
     {
       number: "03",
-      title: "Community",
+      title: "Local partnerships",
       description:
-        "Meet curious, motivated Rams and collaborate with people who care about the future of Fort Collins.",
+        "Work with other environmental clubs and support sustainability efforts led by CSU, Fort Collins, and Northern Colorado.",
     },
   ],
   officers: [
     {
       role: "President",
-      name: "Add president name",
-      bio: "Add a short introduction or favorite sustainability goal.",
+      name: "Jack",
+      bio: "Leads meetings, coordinates activities, delegates responsibilities, and keeps the club aligned with CSU requirements and its constitution.",
       photo: "",
     },
     {
-      role: "Vice President",
-      name: "Add vice president name",
-      bio: "Add a short introduction or favorite sustainability goal.",
-      photo: "",
-    },
-    {
-      role: "Treasurer",
-      name: "Add treasurer name",
-      bio: "Add a short introduction or favorite sustainability goal.",
+      role: "Vice President / Treasurer",
+      name: "Sadie",
+      bio: "Supports club planning, coordinates with CSU and the city, maintains financial records and reports, and helps document meetings.",
       photo: "",
     },
   ],
@@ -81,12 +75,20 @@ export const siteContent = {
     googleSheetCsvUrl: "",
     fallback: [
       {
-        date: "Date coming soon",
-        time: "Time coming soon",
-        location: "CSU campus — room coming soon",
-        title: "Next club meeting",
+        date: "September 1, 2026",
+        time: "To be announced",
+        location: "CSU campus — room to be announced",
+        title: "First club meeting",
         details:
-          "Come meet the club, hear what we are planning, and help choose our next campus project.",
+          "Meet the club, hold officer elections, and plan the first month of Rams Go Green activities.",
+      },
+      {
+        date: "September 5, 2026",
+        time: "To be announced",
+        location: "CSU campus — meetup point to be announced",
+        title: "First cleanup after the football game",
+        details:
+          "Our first hands-on cleanup event. Sign-up details and the meetup location will be posted before the event.",
       },
     ] satisfies Meeting[],
   },

@@ -523,7 +523,8 @@ h1 em {
 .officer-grid {
   display: grid;
   gap: clamp(18px, 3vw, 36px);
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 960px;
 }
 
 .officer-photo {
@@ -616,7 +617,8 @@ h1 em {
   margin-bottom: 0;
 }
 
-.instagram-heading a {
+.instagram-heading a,
+.instagram-coming-soon {
   border-bottom: 1px solid currentColor;
   font-size: 0.85rem;
   font-weight: 700;

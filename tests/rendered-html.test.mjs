@@ -21,6 +21,13 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /Rams go/);
   assert.match(html, /There[^<]*s a seat for you/);
   assert.match(html, /Meet the team/);
+  assert.match(html, />Jack</);
+  assert.match(html, />Sadie</);
+  assert.match(html, /September 1, 2026/);
+  assert.match(html, /September 5, 2026/);
   assert.match(html, /Fresh from the feed/);
-  assert.doesNotMatch(html, /codex-preview|Building your site|react-loading-skeleton/);
+  assert.doesNotMatch(
+    html,
+    /codex-preview|Building your site|react-loading-skeleton|og\.png/,
+  );
 });

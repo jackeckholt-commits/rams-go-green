@@ -164,8 +164,8 @@ export default async function Home() {
           <p className="section-kicker">Come say hello</p>
           <h2>There&apos;s a seat for you.</h2>
           <p>
-            No sustainability experience required. Bring your questions, your
-            ideas, or just yourself.
+            We hold one formal planning meeting each month and aim for two or
+            three activities or meetups. No sustainability experience required.
           </p>
           <a className="button button-green" href={siteContent.joinLink}>
             I&apos;m interested <span aria-hidden="true">↗</span>
@@ -251,9 +251,13 @@ export default async function Home() {
             <p className="section-kicker">Follow along</p>
             <h2>Fresh from the feed.</h2>
           </div>
-          <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
-            {siteContent.instagramHandle} <span aria-hidden="true">↗</span>
-          </a>
+          {siteContent.instagramProfileUrl ? (
+            <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
+              {siteContent.instagramHandle} <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <span className="instagram-coming-soon">{siteContent.instagramHandle}</span>
+          )}
         </div>
         {siteContent.instagramWidgetUrl ? (
           <iframe
@@ -279,18 +283,25 @@ export default async function Home() {
           <p className="section-kicker">Ready when you are</p>
           <h2>Make your time at CSU count.</h2>
           <p>
-            Follow us for the next meeting, bring a friend, and help shape the
-            projects Rams Go Green takes on next.
+            Active membership is open to every CSU student with no dues.
+            Community partners can join as associate members, and activities
+            are open even if you are not yet an active member.
           </p>
           <div className="join-actions">
-            <a
-              className="button button-light"
-              href={siteContent.instagramProfileUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Follow on Instagram <span aria-hidden="true">↗</span>
-            </a>
+            {siteContent.instagramProfileUrl ? (
+              <a
+                className="button button-light"
+                href={siteContent.instagramProfileUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Follow on Instagram <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <a className="button button-light" href="#meetings">
+                See upcoming events <span aria-hidden="true">↑</span>
+              </a>
+            )}
             {siteContent.contactEmail ? (
               <a className="text-link" href={`mailto:${siteContent.contactEmail}`}>
                 Email the club
