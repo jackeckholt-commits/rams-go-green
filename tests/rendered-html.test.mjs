@@ -29,7 +29,9 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /September 5, 2026/);
   assert.match(html, />TBD</);
   assert.doesNotMatch(html, /To be announced|room to be announced/);
-  assert.match(html, /Fresh from the feed/);
+  assert.match(html, /From the feed/);
+  assert.match(html, /No posts at this time\./);
+  assert.doesNotMatch(html, /Share the change|Meet your people|Grow something good/);
   assert.doesNotMatch(
     html,
     /codex-preview|Building your site|react-loading-skeleton|og\.png|↗|⬆|➡/,

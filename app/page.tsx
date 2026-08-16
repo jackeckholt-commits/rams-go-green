@@ -249,7 +249,7 @@ export default async function Home() {
         <div className="instagram-heading">
           <div>
             <p className="section-kicker">Follow along</p>
-            <h2>Fresh from the feed.</h2>
+            <h2>From the feed.</h2>
           </div>
           {siteContent.instagramProfileUrl ? (
             <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
@@ -267,10 +267,8 @@ export default async function Home() {
             loading="lazy"
           />
         ) : (
-          <div className="instagram-placeholder">
-            <div className="post-card post-one"><span>Share the change.</span></div>
-            <div className="post-card post-two"><span>Meet your people.</span></div>
-            <div className="post-card post-three"><span>Grow something good.</span></div>
+          <div className="instagram-empty">
+            <p>No posts at this time.</p>
           </div>
         )}
       </section>
