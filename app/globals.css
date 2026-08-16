@@ -724,6 +724,217 @@ footer > a:last-child {
   justify-self: end;
 }
 
+.admin-page {
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+.admin-header {
+  align-items: center;
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0 clamp(22px, 5vw, 76px);
+}
+
+.admin-view-link {
+  border-bottom: 1px solid currentColor;
+  font-size: 0.82rem;
+  font-weight: 750;
+  padding-bottom: 4px;
+}
+
+.admin-shell {
+  margin: 0 auto;
+  max-width: 1500px;
+  padding: 0 clamp(24px, 7vw, 108px) clamp(72px, 9vw, 130px);
+}
+
+.admin-intro {
+  display: grid;
+  gap: clamp(42px, 8vw, 120px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  padding: clamp(72px, 9vw, 130px) 0;
+}
+
+.admin-intro h1 {
+  color: var(--green);
+  font-size: clamp(3.3rem, 7vw, 7rem);
+  line-height: 0.92;
+  max-width: 800px;
+}
+
+.admin-intro-copy {
+  align-self: end;
+}
+
+.admin-intro-copy > p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.admin-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-statuses span {
+  background: var(--gold-pale);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 10px 12px;
+}
+
+.admin-section {
+  background: var(--white);
+  margin-left: calc(0px - clamp(24px, 7vw, 108px));
+  margin-right: calc(0px - clamp(24px, 7vw, 108px));
+  padding: clamp(70px, 8vw, 116px) clamp(24px, 7vw, 108px);
+}
+
+.admin-section-heading {
+  margin-bottom: 54px;
+  max-width: 850px;
+}
+
+.admin-section-heading h2,
+.admin-help h2 {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 620;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.admin-grid {
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-card {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.admin-card-number {
+  color: var(--green-bright);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.admin-card h3 {
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  letter-spacing: -0.045em;
+  margin: 48px 0 16px;
+}
+
+.admin-card > p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 30px;
+  max-width: 530px;
+}
+
+.admin-card-actions {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.admin-card-actions a {
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 750;
+  padding: 13px 16px;
+}
+
+.admin-card-actions a:hover {
+  background: var(--green-dark);
+}
+
+.admin-help {
+  display: grid;
+  gap: clamp(50px, 9vw, 130px);
+  grid-template-columns: minmax(250px, 0.8fr) 1.2fr;
+  padding: clamp(76px, 9vw, 130px) 0;
+}
+
+.admin-help ol {
+  border-top: 1px solid var(--line);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-help li {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  font-weight: 650;
+  gap: 20px;
+  grid-template-columns: 36px 1fr;
+  padding: 24px 0;
+}
+
+.admin-help li span {
+  align-items: center;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.admin-note {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: clamp(30px, 5vw, 58px);
+}
+
+.admin-note strong {
+  color: var(--gold);
+  display: block;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.admin-note p {
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.admin-note a {
+  border-bottom: 1px solid currentColor;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 750;
+  margin-top: 8px;
+  padding-bottom: 4px;
+}
+
 @media (max-width: 920px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -772,6 +983,11 @@ footer > a:last-child {
 
   .join {
     grid-template-columns: 0.5fr 1fr;
+  }
+
+  .admin-intro,
+  .admin-help {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -868,6 +1084,18 @@ footer > a:last-child {
 
   footer > a:last-child {
     justify-self: start;
+  }
+
+  .admin-header {
+    min-height: 68px;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-card {
+    min-height: 320px;
   }
 }
 

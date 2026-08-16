@@ -19,17 +19,27 @@ await cp(
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("github-pages", Date.now().toString());
 const { default: worker } = await import(workerUrl.href);
-const response = await worker.fetch(
-  new Request("https://example.com/rams-go-green/", {
-    headers: { accept: "text/html" },
-  }),
-  { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
-  { waitUntil() {}, passThroughOnException() {} },
-);
+const routes = [
+  { pathname: "/rams-go-green/", output: "index.html" },
+  { pathname: "/rams-go-green/admin", output: "admin/index.html" },
+];
 
-if (!response.ok) {
-  throw new Error(`Could not render the home page (${response.status}).`);
+for (const route of routes) {
+  const response = await worker.fetch(
+    new Request(`https://example.com${route.pathname}`, {
+      headers: { accept: "text/html" },
+    }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  if (!response.ok) {
+    throw new Error(`Could not render ${route.pathname} (${response.status}).`);
+  }
+
+  const outputPath = path.join(outputDirectory, route.output);
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, await response.text());
 }
 
-await writeFile(path.join(outputDirectory, "index.html"), await response.text());
 await writeFile(path.join(outputDirectory, ".nojekyll"), "");
