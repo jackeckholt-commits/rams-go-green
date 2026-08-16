@@ -65,9 +65,9 @@ export const siteContent = {
       photo: "",
     },
     {
-      role: "Vice President / Treasurer",
+      role: "Vice President",
       name: "Sadie",
-      bio: "Supports club planning, coordinates with CSU and the city, maintains financial records and reports, and helps document meetings.",
+      bio: "Also serves as treasurer. Supports club planning, coordinates with CSU and the city, maintains financial records and reports, and helps document meetings.",
       photo: "",
     },
   ],
