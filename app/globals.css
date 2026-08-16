@@ -326,7 +326,10 @@ h1 em {
 }
 
 .meeting-ribbon > a {
-  font-size: 1.5rem;
+  border-bottom: 1px solid currentColor;
+  font-size: 0.76rem;
+  font-weight: 750;
+  padding-bottom: 3px;
 }
 
 .section-pad {

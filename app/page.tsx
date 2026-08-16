@@ -105,10 +105,10 @@ export default async function Home() {
           <p className="hero-intro">{siteContent.intro}</p>
           <div className="hero-actions">
             <a className="button button-light" href={siteContent.joinLink}>
-              Get involved <span aria-hidden="true">↗</span>
+              Get involved
             </a>
             <a className="text-link" href="#meetings">
-              See our next meeting <span aria-hidden="true">↓</span>
+              See our next meeting
             </a>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default async function Home() {
             </span>
           </div>
           <a href="#meetings" aria-label="View meeting details">
-            →
+            View
           </a>
         </div>
       </section>
@@ -168,7 +168,7 @@ export default async function Home() {
             three activities or meetups. No sustainability experience required.
           </p>
           <a className="button button-green" href={siteContent.joinLink}>
-            I&apos;m interested <span aria-hidden="true">↗</span>
+            I&apos;m interested
           </a>
         </div>
         <div className="meeting-list">
@@ -191,7 +191,7 @@ export default async function Home() {
                 </dl>
                 {meeting.link ? (
                   <a className="detail-link" href={meeting.link}>
-                    Meeting details →
+                    Meeting details
                   </a>
                 ) : null}
               </div>
@@ -253,7 +253,7 @@ export default async function Home() {
           </div>
           {siteContent.instagramProfileUrl ? (
             <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
-              {siteContent.instagramHandle} <span aria-hidden="true">↗</span>
+              {siteContent.instagramHandle}
             </a>
           ) : (
             <span className="instagram-coming-soon">{siteContent.instagramHandle}</span>
@@ -295,11 +295,11 @@ export default async function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Follow on Instagram <span aria-hidden="true">↗</span>
+                Follow on Instagram
               </a>
             ) : (
               <a className="button button-light" href="#meetings">
-                See upcoming events <span aria-hidden="true">↑</span>
+                See upcoming events
               </a>
             )}
             {siteContent.contactEmail ? (
@@ -317,7 +317,7 @@ export default async function Home() {
           <span>{siteContent.clubName}</span>
         </a>
         <p>A student-led club at Colorado State University.</p>
-        <a href="#top">Back to top ↑</a>
+        <a href="#top">Back to top</a>
       </footer>
     </main>
   );

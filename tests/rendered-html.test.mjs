@@ -30,6 +30,6 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /Fresh from the feed/);
   assert.doesNotMatch(
     html,
-    /codex-preview|Building your site|react-loading-skeleton|og\.png/,
+    /codex-preview|Building your site|react-loading-skeleton|og\.png|↗|⬆|➡/,
   );
 });
