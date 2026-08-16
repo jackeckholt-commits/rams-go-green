@@ -150,7 +150,7 @@ export default async function Home() {
       <section className="activities section-pad" aria-labelledby="activities-title">
         <div className="section-heading">
           <p className="section-kicker">What we do</p>
-          <h2 id="activities-title">Good ideas become real change.</h2>
+          <h2 id="activities-title">Make a difference today.</h2>
         </div>
         <div className="activity-grid">
           {siteContent.activities.map((activity) => (
