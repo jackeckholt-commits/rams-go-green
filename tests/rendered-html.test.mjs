@@ -27,6 +27,8 @@ test("server-renders the Rams Go Green site", async () => {
   assert.doesNotMatch(html, />Treasurer</);
   assert.match(html, /September 1, 2026/);
   assert.match(html, /September 5, 2026/);
+  assert.match(html, />TBD</);
+  assert.doesNotMatch(html, /To be announced|room to be announced/);
   assert.match(html, /Fresh from the feed/);
   assert.doesNotMatch(
     html,

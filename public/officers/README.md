@@ -6,5 +6,5 @@ Add JPG, PNG, or WebP photos to this folder. For example:
 - `vice-president.jpg`
 - `treasurer.jpg`
 
-Then open `app/site-content.ts` and set the matching officer's `photo` value to
+Then open `content/site.json` and set the matching officer's `photo` value to
 `/officers/president.jpg` (or the filename you used).

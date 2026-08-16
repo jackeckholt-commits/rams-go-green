@@ -1,58 +1,61 @@
 # Rams Go Green website
 
-This is the club's one-page website. It is designed so routine updates happen
-in one file: `app/site-content.ts`.
+This repository contains the Rams Go Green club website.
 
-## Change club information
+## Quick edit
 
-Open `app/site-content.ts`. The notes at the top point to every editable item:
+**[Edit the club information on GitHub](https://github.com/jackeckholt-commits/rams-go-green/edit/main/content/site.json)**
 
-- officer names, introductions, and photo paths
-- meeting dates, times, locations, and links
-- Instagram handle, profile, and feed widget
-- mission, activities, contact email, and gallery photos
+The file `content/site.json` contains the meeting schedule, officer names,
+Instagram information, mission, and other routine website text.
 
-Save the file and the site will refresh while it is running locally.
+To change a meeting:
+
+1. Open the edit link above.
+2. Find the meeting under `"fallback"`.
+3. Replace `TBD` with the real time or location, keeping the quotation marks.
+4. Select **Commit changes** at the bottom of the GitHub page.
+
+Use `TBD` for anything that has not been decided yet. Do not remove commas or
+quotation marks.
 
 ## Add officer photos
 
-1. Put the image in `public/officers`.
-2. Open `app/site-content.ts`.
-3. Change that officer's `photo` value to a path such as
-   `/officers/president.jpg`.
+1. Upload the image to `public/officers` on GitHub.
+2. Open `content/site.json`.
+3. Change the officer's `"photo"` value to a path such as
+   `"/officers/president.jpg"`.
 
-Leave the value empty to keep the initials placeholder.
+Leave the value empty (`"photo": ""`) to show the initials placeholder.
 
 ## Add club photos
 
-1. Put each image in `public/gallery`.
-2. Add it to the `galleryPhotos` list in `app/site-content.ts`.
-3. Include a short `alt` description and an optional caption.
+1. Upload each image to `public/gallery`.
+2. Add it to the `"galleryPhotos"` list in `content/site.json`.
+3. Include a short description in the `"alt"` field.
 
 The gallery stays hidden until at least one photo is added.
 
-## Update meetings with Google Sheets
+## Optional Google Sheets meetings
 
-The site works with the local meeting list by default. To let a Google Sheet
-control the meetings:
+The website can read meetings from a published Google Sheet instead of the
+local list:
 
 1. Copy `public/data/meetings-template.csv` into Google Sheets.
 2. Keep the headings `date`, `time`, `location`, `title`, `details`, and `link`.
-3. In Google Sheets, publish that tab as a CSV.
-4. Paste the public CSV address into `googleSheetCsvUrl` in
-   `app/site-content.ts`.
+3. Publish the sheet tab as CSV.
+4. Paste its public CSV address into `"googleSheetCsvUrl"` in
+   `content/site.json`.
 
-The first row becomes the highlighted next meeting. If the sheet cannot load,
-the local fallback meeting is shown so the page never goes blank.
+The local meetings remain as a backup if the sheet cannot load.
 
-## Show Instagram posts automatically
+## Instagram feed
 
-Instagram does not provide a simple public feed URL. Create a feed with an
-Instagram widget provider such as LightWidget or Behold, then paste the widget's
-iframe URL into `instagramWidgetUrl` in `app/site-content.ts`. The placeholder
-tiles will automatically be replaced by the live feed.
+Create a public Instagram feed widget with a provider such as LightWidget or
+Behold. Paste the widget iframe URL into `"instagramWidgetUrl"` in
+`content/site.json`.
 
-## Run the website
+## Run the website locally
 
 Requires Node.js 22.13 or later.
 
