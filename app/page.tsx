@@ -68,19 +68,12 @@ async function getMeetings(): Promise<Meeting[]> {
   }
 }
 
-function initials(name: string) {
-  if (name.toLowerCase().startsWith("add ")) return "RG";
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
 export default async function Home() {
   const meetings = await getMeetings();
   const nextMeeting = meetings[0];
+  const visibleOfficers = siteContent.officers.filter((officer) =>
+    officer.photo.trim(),
+  );
 
   return (
     <main>
@@ -94,7 +87,7 @@ export default async function Home() {
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
           <a href="#meetings">Meetings</a>
-          <a href="#officers">Officers</a>
+          {visibleOfficers.length ? <a href="#officers">Officers</a> : null}
           <a href="#instagram">Instagram</a>
         </nav>
         <a className="header-cta" href={siteContent.joinLink}>
@@ -206,34 +199,32 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="officers section-pad" id="officers">
-        <div className="section-heading horizontal-heading">
-          <div>
-            <p className="section-kicker">Meet the team</p>
-            <h2>Rams making it happen.</h2>
+      {visibleOfficers.length ? (
+        <section className="officers section-pad" id="officers">
+          <div className="section-heading horizontal-heading">
+            <div>
+              <p className="section-kicker">Meet the team</p>
+              <h2>Rams making it happen.</h2>
+            </div>
+            <p>Say hi at a meeting—we&apos;d love to meet you.</p>
           </div>
-          <p>Say hi at a meeting—we&apos;d love to meet you.</p>
-        </div>
-        <div className="officer-grid">
-          {siteContent.officers.map((officer) => (
-            <article className="officer-card" key={officer.role}>
-              <div className="officer-photo">
-                {officer.photo ? (
+          <div className="officer-grid">
+            {visibleOfficers.map((officer) => (
+              <article className="officer-card" key={officer.role}>
+                <div className="officer-photo">
                   <img
                     src={publicAsset(officer.photo)}
                     alt={`${officer.name}, ${officer.role}`}
                   />
-                ) : (
-                  <span aria-hidden="true">{initials(officer.name)}</span>
-                )}
-              </div>
-              <p className="officer-role">{officer.role}</p>
-              <h3>{officer.name}</h3>
-              <p>{officer.bio}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+                </div>
+                <p className="officer-role">{officer.role}</p>
+                <h3>{officer.name}</h3>
+                <p>{officer.bio}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {siteContent.galleryPhotos.length ? (
         <section className="gallery section-pad" aria-labelledby="gallery-title">

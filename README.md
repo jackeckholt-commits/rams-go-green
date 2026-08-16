@@ -31,7 +31,8 @@ quotation marks.
 3. Change the officer's `"photo"` value to a path such as
    `"/officers/president.jpg"`.
 
-Leave the value empty (`"photo": ""`) to show the initials placeholder.
+The officer area stays hidden while every `"photo"` value is empty. Each
+officer appears automatically after their photo path is added.
 
 ## Add club photos
 
