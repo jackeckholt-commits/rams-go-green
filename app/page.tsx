@@ -207,8 +207,8 @@ export default async function Home() {
         <section className="officers section-pad" id="officers">
           <div className="section-heading horizontal-heading">
             <div>
-              <p className="section-kicker">Meet the team</p>
-              <h2>Rams making it happen.</h2>
+              <p className="section-kicker">Our leadership</p>
+              <h2>Rams with some plans.</h2>
             </div>
             <p>Say hi at a meeting—we&apos;d love to meet you.</p>
           </div>

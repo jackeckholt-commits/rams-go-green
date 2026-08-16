@@ -21,7 +21,8 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /Rams go/);
   assert.doesNotMatch(html, /There[^<]*s a seat for you|href="#meetings"|id="meetings"/);
   assert.doesNotMatch(html, /September 1, 2026|September 5, 2026|>TBD</);
-  assert.match(html, /Meet the team|Rams making it happen/);
+  assert.match(html, /Our leadership/);
+  assert.match(html, /Rams with some plans\./);
   assert.match(html, />Jack<|>Sadie<|>Vice President</);
   assert.match(html, /href="#officers"/);
   assert.doesNotMatch(html, />Treasurer</);
