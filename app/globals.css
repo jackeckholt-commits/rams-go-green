@@ -232,51 +232,14 @@ h1 em {
   z-index: 1;
 }
 
-.sun-disc {
-  background: var(--gold);
+.hero-logo {
+  aspect-ratio: 1;
   border-radius: 50%;
-  height: clamp(260px, 32vw, 470px);
-  position: absolute;
-  width: clamp(260px, 32vw, 470px);
-}
-
-.hero-art p {
-  color: var(--green-dark);
-  font-family: Georgia, serif;
-  font-size: clamp(2.2rem, 4vw, 4.2rem);
-  font-style: italic;
-  line-height: 0.98;
-  margin: 0;
-  position: relative;
-  text-align: center;
-  transform: rotate(-6deg);
-}
-
-.leaf {
-  background: var(--green-bright);
-  border-radius: 100% 0 100% 0;
-  height: 150px;
-  opacity: 0.92;
-  position: absolute;
-  width: 74px;
-}
-
-.leaf-one {
-  left: 8%;
-  top: 18%;
-  transform: rotate(-32deg);
-}
-
-.leaf-two {
-  bottom: 10%;
-  right: 6%;
-  transform: rotate(35deg) scale(0.75);
-}
-
-.leaf-three {
-  right: 1%;
-  top: 3%;
-  transform: rotate(75deg) scale(0.48);
+  box-shadow: 0 24px 70px rgba(10, 36, 20, 0.34);
+  height: auto;
+  max-width: clamp(260px, 32vw, 470px);
+  object-fit: cover;
+  width: 100%;
 }
 
 .meeting-ribbon {
@@ -504,6 +467,33 @@ h1 em {
   background: var(--cream);
 }
 
+.leadership-hero {
+  background: var(--green);
+  color: var(--white);
+}
+
+.leadership-hero .section-kicker {
+  color: var(--gold);
+}
+
+.leadership-hero h1 {
+  font-size: clamp(3.8rem, 9vw, 8.5rem);
+  line-height: 0.9;
+  max-width: 1100px;
+}
+
+.leadership-hero > p:last-child {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin: 40px 0 0;
+  max-width: 620px;
+}
+
+.leadership-officers {
+  min-height: 60vh;
+}
+
 .horizontal-heading {
   align-items: end;
   display: flex;
@@ -569,6 +559,7 @@ h1 em {
   margin-bottom: 9px;
 }
 
+.officer-card h2,
 .officer-card h3 {
   font-size: 1.42rem;
   letter-spacing: -0.03em;

@@ -68,15 +68,6 @@ async function getMeetings(): Promise<Meeting[]> {
   }
 }
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
 export default async function Home() {
   const meetings = await getMeetings();
   const nextMeeting = meetings[0];
@@ -94,7 +85,9 @@ export default async function Home() {
         <nav aria-label="Main navigation">
           <a href="#about">About</a>
           {hasMeetings ? <a href="#meetings">Meetings</a> : null}
-          {siteContent.officers.length ? <a href="#officers">Officers</a> : null}
+          {siteContent.officers.length ? (
+            <a href={publicAsset("/leadership/")}>Leadership</a>
+          ) : null}
           <a href="#instagram">Instagram</a>
         </nav>
       </header>
@@ -115,12 +108,12 @@ export default async function Home() {
           ) : null}
         </div>
 
-        <div className="hero-art" aria-hidden="true">
-          <div className="sun-disc" />
-          <div className="leaf leaf-one" />
-          <div className="leaf leaf-two" />
-          <div className="leaf leaf-three" />
-          <p>Grow here.<br />Give back.</p>
+        <div className="hero-art">
+          <img
+            className="hero-logo"
+            src={publicAsset("/rams-go-green-logo.png")}
+            alt="Rams Go Green logo"
+          />
         </div>
 
         {nextMeeting ? (
@@ -197,37 +190,6 @@ export default async function Home() {
                     </a>
                   ) : null}
                 </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {siteContent.officers.length ? (
-        <section className="officers section-pad" id="officers">
-          <div className="section-heading horizontal-heading">
-            <div>
-              <p className="section-kicker">Our leadership</p>
-              <h2>Rams with some plans.</h2>
-            </div>
-            <p>Say hi at a meeting—we&apos;d love to meet you.</p>
-          </div>
-          <div className="officer-grid">
-            {siteContent.officers.map((officer) => (
-              <article className="officer-card" key={officer.role}>
-                <div className="officer-photo">
-                  {officer.photo ? (
-                    <img
-                      src={publicAsset(officer.photo)}
-                      alt={`${officer.name}, ${officer.role}`}
-                    />
-                  ) : (
-                    <span aria-hidden="true">{initials(officer.name)}</span>
-                  )}
-                </div>
-                <p className="officer-role">{officer.role}</p>
-                <h3>{officer.name}</h3>
-                <p>{officer.bio}</p>
               </article>
             ))}
           </div>

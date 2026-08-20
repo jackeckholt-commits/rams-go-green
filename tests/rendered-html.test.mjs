@@ -21,11 +21,10 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /Rams go/);
   assert.doesNotMatch(html, /There[^<]*s a seat for you|href="#meetings"|id="meetings"/);
   assert.doesNotMatch(html, /September 1, 2026|September 5, 2026|>TBD</);
-  assert.match(html, /Our leadership/);
-  assert.match(html, /Rams with some plans\./);
-  assert.match(html, />Jack<|>Sadie<|>Vice President</);
-  assert.match(html, /href="#officers"/);
-  assert.doesNotMatch(html, />Treasurer</);
+  assert.match(html, /href="\/leadership\/"/);
+  assert.match(html, /src="\/rams-go-green-logo\.png"/);
+  assert.doesNotMatch(html, /Our leadership|Rams with some plans|>Jack<|>Sadie</);
+  assert.doesNotMatch(html, /Grow here|Give back/);
   assert.match(html, /From the feed/);
   assert.match(html, /No posts at this time\./);
   assert.doesNotMatch(html, /Ready when you are|Make your time at CSU count|See upcoming events/);
@@ -36,6 +35,18 @@ test("server-renders the Rams Go Green site", async () => {
     html,
     /codex-preview|Building your site|react-loading-skeleton|og\.png|↗|⬆|➡/,
   );
+});
+
+test("server-renders the leadership page", async () => {
+  const response = await render("/leadership");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Leadership \| Rams Go Green<\/title>/i);
+  assert.match(html, /Our leadership/);
+  assert.match(html, /Rams with some plans\./);
+  assert.match(html, />Jack<|>Sadie<|>Vice President</);
+  assert.doesNotMatch(html, />Treasurer</);
+  assert.match(html, /Back to main site/);
 });
 
 test("server-renders the admin page", async () => {
