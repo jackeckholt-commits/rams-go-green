@@ -66,8 +66,10 @@ img {
 
 .brand-logo {
   border-radius: 50%;
+  clip-path: circle(46.2% at 50% 50%);
   height: 42px;
   object-fit: cover;
+  object-position: center;
   width: 42px;
 }
 
@@ -279,11 +281,11 @@ h1 em {
 .hero-logo {
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 3px solid var(--green-dark);
-  box-shadow: 18px 18px 0 rgba(126, 142, 101, 0.7);
+  clip-path: circle(46.2% at 50% 50%);
   height: auto;
-  max-width: clamp(260px, 32vw, 470px);
+  max-width: clamp(250px, 30vw, 420px);
   object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
