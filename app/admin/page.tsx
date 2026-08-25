@@ -3,6 +3,7 @@ import { siteContent } from "../site-content";
 
 const repositoryUrl = "https://github.com/jackeckholt-commits/rams-go-green";
 const editContentUrl = `${repositoryUrl}/edit/main/content/site.json`;
+const editGuideUrl = `${repositoryUrl}/blob/main/README.md#quick-edit`;
 const officerUploadUrl = `${repositoryUrl}/upload/main/public/officers`;
 const galleryUploadUrl = `${repositoryUrl}/upload/main/public/gallery`;
 const liveSiteUrl = "https://jackeckholt-commits.github.io/rams-go-green/";
@@ -16,14 +17,24 @@ export const metadata: Metadata = {
 const tasks = [
   {
     number: "01",
-    title: "Meetings and site text",
+    title: "Page wording and links",
     description:
-      "Add meeting dates, times, locations, and details. The entire schedule appears automatically after the first event is added.",
-    links: [{ label: "Edit site details", href: editContentUrl }],
+      "Change the hero, section headings, mission, leadership wording, footer, and social links in one organized file.",
+    links: [
+      { label: "Edit page content", href: editContentUrl },
+      { label: "Open the editing guide", href: editGuideUrl },
+    ],
   },
   {
     number: "02",
-    title: "Officer photos",
+    title: "Meetings",
+    description:
+      "Add meeting dates, times, locations, and details. The entire schedule appears automatically after the first event is added.",
+    links: [{ label: "Edit meetings", href: editContentUrl }],
+  },
+  {
+    number: "03",
+    title: "Leadership profiles",
     description:
       "Upload the president or vice president photo, then add its file path to replace that officer's initials.",
     links: [
@@ -32,7 +43,7 @@ const tasks = [
     ],
   },
   {
-    number: "03",
+    number: "04",
     title: "Club gallery",
     description:
       "Upload event photos, then add their names and captions. The gallery stays hidden until a photo is listed.",
@@ -42,7 +53,7 @@ const tasks = [
     ],
   },
   {
-    number: "04",
+    number: "05",
     title: "Instagram feed",
     description:
       "Add the club handle, profile link, and feed widget address when the Instagram account is ready.",
@@ -75,8 +86,9 @@ export default function AdminPage() {
           </div>
           <div className="admin-intro-copy">
             <p>
-              Choose what you want to update. GitHub will ask you to sign in,
-              and every saved change publishes to the website automatically.
+              Most updates are grouped in one clearly labeled content file.
+              Choose a section below, make the change, and GitHub publishes it
+              to the website automatically.
             </p>
             <div className="admin-statuses" aria-label="Current website status">
               <span>{siteContent.meetings.fallback.length} events listed</span>

@@ -16,6 +16,18 @@ automatically by GitHub Pages.
 The file `content/site.json` contains the meeting schedule, officer names,
 Instagram information, mission, and other routine website text.
 
+The most common sections are:
+
+- `pageText.home` — home-page headings, labels, and the empty Instagram message.
+- `pageText.leadership` — the Leadership page heading and introduction.
+- `activities` — the three activity cards.
+- `officers` — names, roles, biographies, and photo paths.
+- `meetings.fallback` — meeting dates, times, locations, and details.
+- `galleryPhotos` — club photos and captions.
+
+Keep the quotation marks and commas in place. Change only the text between the
+quotation marks unless you are adding a new list item.
+
 To add a meeting:
 
 1. Open the edit link above.
@@ -86,3 +98,13 @@ npm run dev
 ```
 
 Use `npm test` before publishing an update.
+
+## Simple code map
+
+- `content/site.json` is the main file for routine wording and information.
+- `app/page.tsx` controls the home-page layout.
+- `app/leadership/page.tsx` controls the Leadership page layout.
+- `app/components` contains the shared header and footer.
+- `app/meetings.ts` handles the optional Google Sheet meeting feed.
+- `app/globals.css` controls the design. The poster-inspired colors are listed
+  together at the very top, with the main olive color set to `#3c4a2f`.

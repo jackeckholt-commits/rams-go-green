@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
+import { SiteFooter } from "../components/site-footer";
+import { SiteHeader } from "../components/site-header";
 import { siteContent } from "../site-content";
-
-const siteBasePath = process.env.NEXT_PUBLIC_SITE_BASE_PATH ?? "";
-
-function publicAsset(path: string) {
-  return `${siteBasePath}${path}`;
-}
+import { sitePath } from "../site-path";
 
 function initials(name: string) {
   return name
@@ -17,8 +14,7 @@ function initials(name: string) {
 }
 
 const title = "Leadership | Rams Go Green";
-const description =
-  "Meet the student leaders organizing Rams Go Green at Colorado State University.";
+const description = siteContent.pageText.leadership.intro;
 
 export const metadata: Metadata = {
   title,
@@ -28,25 +24,16 @@ export const metadata: Metadata = {
 };
 
 export default function LeadershipPage() {
+  const pageText = siteContent.pageText.leadership;
+
   return (
     <main className="leadership-page">
-      <header className="site-header">
-        <div className="brand" aria-label="Rams Go Green">
-          <span className="brand-mark" aria-hidden="true">
-            RGG
-          </span>
-          <span>{siteContent.clubName}</span>
-        </div>
-        <nav aria-label="Leadership navigation">
-          <a href={publicAsset("/#about")}>About</a>
-          <a href={publicAsset("/#instagram")}>Instagram</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section className="leadership-hero section-pad">
-        <p className="section-kicker">Our leadership</p>
-        <h1>Rams with some plans.</h1>
-        <p>Meet the students helping Rams Go Green turn good ideas into action.</p>
+        <p className="section-kicker">{pageText.label}</p>
+        <h1>{pageText.title}</h1>
+        <p>{pageText.intro}</p>
       </section>
 
       <section className="officers leadership-officers section-pad" aria-label="Club officers">
@@ -56,7 +43,7 @@ export default function LeadershipPage() {
               <div className="officer-photo">
                 {officer.photo ? (
                   <img
-                    src={publicAsset(officer.photo)}
+                    src={sitePath(officer.photo)}
                     alt={`${officer.name}, ${officer.role}`}
                   />
                 ) : (
@@ -71,11 +58,7 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      <footer>
-        <p className="footer-name">{siteContent.clubName}</p>
-        <p>A student-led club at Colorado State University.</p>
-        <a href={publicAsset("/")}>Back to main site</a>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

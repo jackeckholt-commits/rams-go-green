@@ -7,6 +7,30 @@
   "instagramProfileUrl": "https://www.instagram.com/rams.go.green",
   "instagramWidgetUrl": "",
   "mission": "Our goal is to give students a direct way to contribute to the communities of Colorado State and Fort Collins by cleaning our surroundings, supporting sustainability efforts, and taking part in environmental activism.",
+  "pageText": {
+    "home": {
+      "heroTitle": "Rams go",
+      "heroEmphasis": "green.",
+      "values": ["Sustainability", "Community", "Advocacy"],
+      "aboutLabel": "Why we're here",
+      "activitiesLabel": "What we do",
+      "activitiesTitle": "Make a difference today.",
+      "meetingsLabel": "Come say hello",
+      "meetingsTitle": "There's a seat for you.",
+      "meetingsIntro": "We hold one formal planning meeting each month and aim for two or three activities or meetups. No sustainability experience required.",
+      "galleryLabel": "Club life",
+      "galleryTitle": "Growing together.",
+      "instagramLabel": "Follow along",
+      "instagramTitle": "From the feed.",
+      "instagramEmpty": "No posts at this time."
+    },
+    "leadership": {
+      "label": "Our leadership",
+      "title": "Rams with some plans.",
+      "intro": "Meet the students helping Rams Go Green turn good ideas into action."
+    },
+    "footerText": "A student-led club at Colorado State University."
+  },
   "activities": [
     {
       "number": "01",

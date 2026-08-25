@@ -19,6 +19,7 @@ test("server-renders the Rams Go Green site", async () => {
   const html = await response.text();
   assert.match(html, /<title>Rams Go Green \| Colorado State University<\/title>/i);
   assert.match(html, /Rams go/);
+  assert.match(html, /Sustainability/);
   assert.doesNotMatch(html, /There[^<]*s a seat for you|href="#meetings"|id="meetings"/);
   assert.doesNotMatch(html, /September 1, 2026|September 5, 2026|>TBD</);
   assert.match(html, /href="\/leadership\/"/);
@@ -28,7 +29,7 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /From the feed/);
   assert.match(html, /No posts at this time\./);
   assert.doesNotMatch(html, /Ready when you are|Make your time at CSU count|See upcoming events/);
-  assert.equal((html.match(/class="brand-mark"/g) ?? []).length, 1);
+  assert.equal((html.match(/class="brand-logo"/g) ?? []).length, 1);
   assert.doesNotMatch(html, /Share the change|Meet your people|Grow something good/);
   assert.doesNotMatch(html, /Rams Go Green home|class="brand" href="#top"/);
   assert.doesNotMatch(
@@ -47,6 +48,9 @@ test("server-renders the leadership page", async () => {
   assert.match(html, />Jack<|>Sadie<|>Vice President</);
   assert.doesNotMatch(html, />Treasurer</);
   assert.match(html, /Back to main site/);
+  assert.match(html, /property="og:title" content="Leadership \| Rams Go Green"/);
+  assert.match(html, /name="twitter:title" content="Leadership \| Rams Go Green"/);
+  assert.doesNotMatch(html, /og\.png/);
 });
 
 test("server-renders the admin page", async () => {
@@ -55,8 +59,9 @@ test("server-renders the admin page", async () => {
   const html = await response.text();
   assert.match(html, /<title>Site Admin \| Rams Go Green<\/title>/i);
   assert.match(html, /Keep the site current/);
-  assert.match(html, /Meetings and site text/);
-  assert.match(html, /Officer photos/);
+  assert.match(html, /Page wording and links/);
+  assert.match(html, />Meetings</);
+  assert.match(html, /Leadership profiles/);
   assert.match(html, /Club gallery/);
   assert.match(html, /Instagram feed/);
   assert.match(html, /github\.com\/jackeckholt-commits\/rams-go-green\/edit\/main\/content\/site\.json/);

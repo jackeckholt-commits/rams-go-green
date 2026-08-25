@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { siteContent } from "./site-content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rams Go Green | Colorado State University",
-  description:
-    "Rams Go Green brings Colorado State students together for community cleanups, environmental action, and sustainability education.",
+  title: `${siteContent.clubName} | Colorado State University`,
+  description: siteContent.intro,
 };
 
 export default function RootLayout({

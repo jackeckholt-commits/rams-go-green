@@ -1,104 +1,31 @@
-import { siteContent, type Meeting } from "./site-content";
-
-const siteBasePath = process.env.NEXT_PUBLIC_SITE_BASE_PATH ?? "";
-
-function publicAsset(path: string) {
-  return `${siteBasePath}${path}`;
-}
-
-function parseCsvLine(line: string) {
-  const values: string[] = [];
-  let value = "";
-  let quoted = false;
-
-  for (let index = 0; index < line.length; index += 1) {
-    const character = line[index];
-    if (character === '"') {
-      if (quoted && line[index + 1] === '"') {
-        value += '"';
-        index += 1;
-      } else {
-        quoted = !quoted;
-      }
-    } else if (character === "," && !quoted) {
-      values.push(value.trim());
-      value = "";
-    } else {
-      value += character;
-    }
-  }
-
-  values.push(value.trim());
-  return values;
-}
-
-function parseMeetingsCsv(csv: string): Meeting[] {
-  const lines = csv.replace(/\r/g, "").split("\n").filter(Boolean);
-  if (lines.length < 2) return [];
-
-  const headers = parseCsvLine(lines[0]).map((header) => header.toLowerCase());
-  const field = (row: string[], name: string) =>
-    row[headers.indexOf(name)]?.trim() ?? "";
-
-  return lines
-    .slice(1)
-    .map(parseCsvLine)
-    .map((row) => ({
-      date: field(row, "date"),
-      time: field(row, "time"),
-      location: field(row, "location"),
-      title: field(row, "title") || "Club meeting",
-      details: field(row, "details"),
-      link: field(row, "link"),
-    }))
-    .filter((meeting) => meeting.date || meeting.time || meeting.location);
-}
-
-async function getMeetings(): Promise<Meeting[]> {
-  const sheetUrl = siteContent.meetings.googleSheetCsvUrl.trim();
-  if (!sheetUrl) return siteContent.meetings.fallback;
-
-  try {
-    const response = await fetch(sheetUrl, { cache: "no-store" });
-    if (!response.ok) return siteContent.meetings.fallback;
-    const meetings = parseMeetingsCsv(await response.text());
-    return meetings.length ? meetings : siteContent.meetings.fallback;
-  } catch {
-    return siteContent.meetings.fallback;
-  }
-}
+import { SiteFooter } from "./components/site-footer";
+import { SiteHeader } from "./components/site-header";
+import { getMeetings } from "./meetings";
+import { siteContent } from "./site-content";
+import { sitePath } from "./site-path";
 
 export default async function Home() {
   const meetings = await getMeetings();
   const nextMeeting = meetings[0];
   const hasMeetings = meetings.length > 0;
+  const pageText = siteContent.pageText.home;
 
   return (
     <main>
-      <header className="site-header">
-        <div className="brand" aria-label="Rams Go Green">
-          <span className="brand-mark" aria-hidden="true">
-            RGG
-          </span>
-          <span>{siteContent.clubName}</span>
-        </div>
-        <nav aria-label="Main navigation">
-          <a href="#about">About</a>
-          {hasMeetings ? <a href="#meetings">Meetings</a> : null}
-          {siteContent.officers.length ? (
-            <a href={publicAsset("/leadership/")}>Leadership</a>
-          ) : null}
-          <a href="#instagram">Instagram</a>
-        </nav>
-      </header>
+      <SiteHeader onHomePage showMeetings={hasMeetings} />
 
       <section className={`hero${hasMeetings ? "" : " hero-no-meetings"}`} id="top">
         <div className="hero-copy">
           <p className="eyebrow">{siteContent.eyebrow}</p>
           <h1>
-            Rams go <em>green.</em>
+            {pageText.heroTitle} <em>{pageText.heroEmphasis}</em>
           </h1>
           <p className="hero-intro">{siteContent.intro}</p>
+          <ul className="hero-values" aria-label="Club values">
+            {pageText.values.map((value) => (
+              <li key={value}>{value}</li>
+            ))}
+          </ul>
           {hasMeetings ? (
             <div className="hero-actions">
               <a className="text-link" href="#meetings">
@@ -111,7 +38,7 @@ export default async function Home() {
         <div className="hero-art">
           <img
             className="hero-logo"
-            src={publicAsset("/rams-go-green-logo.png")}
+            src={sitePath("/rams-go-green-logo.png")}
             alt="Rams Go Green logo"
           />
         </div>
@@ -133,7 +60,7 @@ export default async function Home() {
       </section>
 
       <section className="statement section-pad" id="about">
-        <p className="section-kicker">Why we&apos;re here</p>
+        <p className="section-kicker">{pageText.aboutLabel}</p>
         <div>
           <h2>{siteContent.tagline}</h2>
           <p>{siteContent.mission}</p>
@@ -142,8 +69,8 @@ export default async function Home() {
 
       <section className="activities section-pad" aria-labelledby="activities-title">
         <div className="section-heading">
-          <p className="section-kicker">What we do</p>
-          <h2 id="activities-title">Make a difference today.</h2>
+          <p className="section-kicker">{pageText.activitiesLabel}</p>
+          <h2 id="activities-title">{pageText.activitiesTitle}</h2>
         </div>
         <div className="activity-grid">
           {siteContent.activities.map((activity) => (
@@ -159,12 +86,9 @@ export default async function Home() {
       {hasMeetings ? (
         <section className="meetings section-pad" id="meetings">
           <div className="meetings-copy">
-            <p className="section-kicker">Come say hello</p>
-            <h2>There&apos;s a seat for you.</h2>
-            <p>
-              We hold one formal planning meeting each month and aim for two or
-              three activities or meetups. No sustainability experience required.
-            </p>
+            <p className="section-kicker">{pageText.meetingsLabel}</p>
+            <h2>{pageText.meetingsTitle}</h2>
+            <p>{pageText.meetingsIntro}</p>
           </div>
           <div className="meeting-list">
             {meetings.map((meeting, index) => (
@@ -200,14 +124,14 @@ export default async function Home() {
         <section className="gallery section-pad" aria-labelledby="gallery-title">
           <div className="section-heading horizontal-heading">
             <div>
-              <p className="section-kicker">Club life</p>
-              <h2 id="gallery-title">Growing together.</h2>
+              <p className="section-kicker">{pageText.galleryLabel}</p>
+              <h2 id="gallery-title">{pageText.galleryTitle}</h2>
             </div>
           </div>
           <div className="gallery-grid">
             {siteContent.galleryPhotos.map((photo) => (
               <figure key={photo.src}>
-                <img src={publicAsset(photo.src)} alt={photo.alt} />
+                <img src={sitePath(photo.src)} alt={photo.alt} />
                 {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
               </figure>
             ))}
@@ -218,8 +142,8 @@ export default async function Home() {
       <section className="instagram section-pad" id="instagram">
         <div className="instagram-heading">
           <div>
-            <p className="section-kicker">Follow along</p>
-            <h2>From the feed.</h2>
+            <p className="section-kicker">{pageText.instagramLabel}</p>
+            <h2>{pageText.instagramTitle}</h2>
           </div>
           {siteContent.instagramProfileUrl ? (
             <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
@@ -238,16 +162,12 @@ export default async function Home() {
           />
         ) : (
           <div className="instagram-empty">
-            <p>No posts at this time.</p>
+            <p>{pageText.instagramEmpty}</p>
           </div>
         )}
       </section>
 
-      <footer>
-        <p className="footer-name">{siteContent.clubName}</p>
-        <p>A student-led club at Colorado State University.</p>
-        <a href="#top">Back to top</a>
-      </footer>
+      <SiteFooter onHomePage />
     </main>
   );
 }

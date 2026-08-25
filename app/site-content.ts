@@ -18,6 +18,30 @@ type SiteContent = {
   instagramProfileUrl: string;
   instagramWidgetUrl: string;
   mission: string;
+  pageText: {
+    home: {
+      heroTitle: string;
+      heroEmphasis: string;
+      values: string[];
+      aboutLabel: string;
+      activitiesLabel: string;
+      activitiesTitle: string;
+      meetingsLabel: string;
+      meetingsTitle: string;
+      meetingsIntro: string;
+      galleryLabel: string;
+      galleryTitle: string;
+      instagramLabel: string;
+      instagramTitle: string;
+      instagramEmpty: string;
+    };
+    leadership: {
+      label: string;
+      title: string;
+      intro: string;
+    };
+    footerText: string;
+  };
   activities: Array<{
     number: string;
     title: string;
@@ -40,4 +64,4 @@ type SiteContent = {
   }>;
 };
 
-export const siteContent = content as SiteContent;
+export const siteContent: SiteContent = content;
