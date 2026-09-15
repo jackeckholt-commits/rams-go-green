@@ -561,7 +561,7 @@ h1 em {
 
 .officer-photo {
   align-items: center;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   background: var(--gold-pale);
   display: flex;
   justify-content: center;
@@ -586,7 +586,10 @@ h1 em {
 }
 
 .officer-photo img {
+  height: 100%;
+  object-fit: cover;
   position: relative;
+  width: 100%;
   z-index: 2;
 }
 
@@ -1061,10 +1064,6 @@ footer > a:last-child {
 
   .activity-card h3 {
     margin-top: 34px;
-  }
-
-  .officer-photo {
-    aspect-ratio: 5 / 4;
   }
 
   .instagram-heading {

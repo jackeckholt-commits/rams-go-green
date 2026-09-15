@@ -52,15 +52,27 @@
   "officers": [
     {
       "role": "President",
-      "name": "Jack",
-      "bio": "Leads meetings, coordinates activities, delegates responsibilities, and keeps the club aligned with CSU requirements and its constitution.",
-      "photo": ""
+      "name": "Jack Eckholt",
+      "bio": "Second-year Electrical Engineering student from Bennington, Nebraska. Fun fact: he has a cat named Dog.",
+      "photo": "/officers/jack-eckholt.jpg"
     },
     {
-      "role": "Vice President",
-      "name": "Sadie",
-      "bio": "Also serves as treasurer. Supports club planning, coordinates with CSU and the city, maintains financial records and reports, and helps document meetings.",
-      "photo": ""
+      "role": "Vice President & Treasurer",
+      "name": "Sadie Cordova",
+      "bio": "Second-year Political Science and Anthropology student from Colorado Springs, Colorado. Fun fact: she studied sustainable energy futures in Denmark with CSU this summer.",
+      "photo": "/officers/sadie-cordova.jpg"
+    },
+    {
+      "role": "Public Relations",
+      "name": "Eli Roust",
+      "bio": "Second-year Music Therapy student pursuing a Disability and Neurodiversity Certificate from Lawrence, Kansas. Fun fact: they have never broken a bone.",
+      "photo": "/officers/eli-roust.jpg"
+    },
+    {
+      "role": "Outreach",
+      "name": "Spencer Wilson",
+      "bio": "Second-year Psychology student from Highlands Ranch, Colorado. Fun fact: he was voted most likely to accidentally walk into a freshman class.",
+      "photo": "/officers/spencer-wilson.jpg"
     }
   ],
   "meetings": {

@@ -58,8 +58,8 @@ and appears automatically after the first meeting is added.
 3. Change the officer's `"photo"` value to a path such as
    `"/officers/president.jpg"`.
 
-Leave the value empty (`"photo": ""`) to show the officer's initials until a
-photo is ready.
+Use a short, clear filename for each officer. Leave the value empty
+(`"photo": ""`) to show the officer's initials until a photo is ready.
 
 ## Add club photos
 

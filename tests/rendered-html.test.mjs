@@ -46,8 +46,14 @@ test("server-renders the leadership page", async () => {
   assert.match(html, /<title>Leadership \| Rams Go Green<\/title>/i);
   assert.match(html, /Our leadership/);
   assert.match(html, /Rams with some plans\./);
-  assert.match(html, />Jack<|>Sadie<|>Vice President</);
-  assert.doesNotMatch(html, />Treasurer</);
+  assert.match(html, />Jack Eckholt<|>Sadie Cordova<|>Vice President &amp; Treasurer</);
+  assert.match(html, />Eli Roust<|>Public Relations</);
+  assert.match(html, />Spencer Wilson<|>Outreach</);
+  assert.match(html, /src="\/officers\/jack-eckholt\.jpg"/);
+  assert.match(html, /src="\/officers\/sadie-cordova\.jpg"/);
+  assert.match(html, /src="\/officers\/eli-roust\.jpg"/);
+  assert.match(html, /src="\/officers\/spencer-wilson\.jpg"/);
+  assert.doesNotMatch(html, /<p class="officer-role">Treasurer<\/p>/);
   assert.match(html, /Back to main site/);
   assert.match(html, /property="og:title" content="Leadership \| Rams Go Green"/);
   assert.match(html, /name="twitter:title" content="Leadership \| Rams Go Green"/);

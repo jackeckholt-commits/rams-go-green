@@ -36,7 +36,7 @@ const tasks = [
     number: "03",
     title: "Leadership profiles",
     description:
-      "Upload the president or vice president photo, then add its file path to replace that officer's initials.",
+      "Upload an officer photo, then add its file path beside that officer's name and details.",
     links: [
       { label: "Upload officer photos", href: officerUploadUrl },
       { label: "Edit officer details", href: editContentUrl },
