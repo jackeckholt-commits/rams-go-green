@@ -97,9 +97,12 @@ and its date-question ID are grouped in the `signups` section of
 
 ## Instagram feed
 
-Create a public Instagram feed widget with a provider such as LightWidget or
-Behold. Paste the widget iframe URL into `"instagramWidgetUrl"` in
-`content/site.json`.
+The home page displays one official Instagram post. To feature a newer post,
+copy its public address, add `/embed/` after the post ID, and replace
+`"instagramEmbedUrl"` in `content/site.json`.
+
+For example, change `https://www.instagram.com/p/POST-ID/` to
+`https://www.instagram.com/p/POST-ID/embed/`.
 
 ## Run the website locally
 

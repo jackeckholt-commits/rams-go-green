@@ -17,7 +17,7 @@ type SiteContent = {
   intro: string;
   instagramHandle: string;
   instagramProfileUrl: string;
-  instagramWidgetUrl: string;
+  instagramEmbedUrl: string;
   mission: string;
   pageText: {
     home: {

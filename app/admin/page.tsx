@@ -56,8 +56,11 @@ const tasks = [
     number: "05",
     title: "Instagram feed",
     description:
-      "Add the club handle, profile link, and feed widget address when the Instagram account is ready.",
-    links: [{ label: "Edit Instagram settings", href: editContentUrl }],
+      "Choose the Instagram post shown on the home page by replacing its embed address in the content file.",
+    links: [
+      { label: "Edit featured post", href: editContentUrl },
+      { label: "View Instagram", href: siteContent.instagramProfileUrl },
+    ],
   },
   {
     number: "06",

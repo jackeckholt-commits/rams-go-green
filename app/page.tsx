@@ -179,11 +179,11 @@ export default async function Home() {
             <span className="instagram-coming-soon">{siteContent.instagramHandle}</span>
           )}
         </div>
-        {siteContent.instagramWidgetUrl ? (
+        {siteContent.instagramEmbedUrl ? (
           <iframe
             className="instagram-widget"
-            src={siteContent.instagramWidgetUrl}
-            title={`${siteContent.clubName} Instagram posts`}
+            src={siteContent.instagramEmbedUrl}
+            title={`${siteContent.clubName} latest Instagram post`}
             loading="lazy"
           />
         ) : (
