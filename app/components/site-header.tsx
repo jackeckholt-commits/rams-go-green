@@ -18,7 +18,7 @@ export function SiteHeader({
       <div className="brand" aria-label="Rams Go Green">
         <img
           className="brand-logo"
-          src={sitePath("/rams-go-green-logo.png")}
+          src={sitePath(siteContent.logo)}
           alt=""
         />
         <span>{siteContent.clubName}</span>

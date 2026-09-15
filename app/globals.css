@@ -66,10 +66,8 @@ img {
 
 .brand-logo {
   border-radius: 50%;
-  clip-path: circle(46.2% at 50% 50%);
   height: 42px;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
   width: 42px;
 }
 
@@ -281,11 +279,9 @@ h1 em {
 .hero-logo {
   aspect-ratio: 1;
   border-radius: 50%;
-  clip-path: circle(46.2% at 50% 50%);
   height: auto;
   max-width: clamp(250px, 30vw, 420px);
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -676,6 +672,8 @@ h1 em {
   background: rgba(184, 179, 169, 0.1);
   border: 1px solid rgba(184, 179, 169, 0.36);
   display: flex;
+  flex-direction: column;
+  gap: 18px;
   justify-content: center;
   min-height: 180px;
   padding: 40px 24px;
@@ -686,6 +684,14 @@ h1 em {
   font-size: 1rem;
   font-weight: 700;
   margin: 0;
+}
+
+.instagram-empty a {
+  border-bottom: 1px solid currentColor;
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding-bottom: 4px;
 }
 
 .instagram-widget {

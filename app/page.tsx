@@ -38,7 +38,7 @@ export default async function Home() {
         <div className="hero-art">
           <img
             className="hero-logo"
-            src={sitePath("/rams-go-green-logo.png")}
+            src={sitePath(siteContent.logo)}
             alt="Rams Go Green logo"
           />
         </div>
@@ -163,6 +163,11 @@ export default async function Home() {
         ) : (
           <div className="instagram-empty">
             <p>{pageText.instagramEmpty}</p>
+            {siteContent.instagramProfileUrl ? (
+              <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
+                Visit @{siteContent.instagramHandle}
+              </a>
+            ) : null}
           </div>
         )}
       </section>

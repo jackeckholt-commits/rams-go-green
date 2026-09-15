@@ -11,6 +11,7 @@ export type Meeting = {
 
 type SiteContent = {
   clubName: string;
+  logo: string;
   eyebrow: string;
   tagline: string;
   intro: string;

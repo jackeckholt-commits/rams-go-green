@@ -1,5 +1,6 @@
 {
   "clubName": "Rams Go Green",
+  "logo": "/rams-go-green-logo-centered.png",
   "eyebrow": "A Colorado State University student club",
   "tagline": "Small choices. Stronger community. Greener campus.",
   "intro": "We bring Rams together to care for CSU and Fort Collins through community cleanups, environmental action, and practical sustainability education.",
@@ -22,7 +23,7 @@
       "galleryTitle": "Growing together.",
       "instagramLabel": "Follow along",
       "instagramTitle": "From the feed.",
-      "instagramEmpty": "No posts at this time."
+      "instagramEmpty": "Our Instagram is live. Photos are coming soon."
     },
     "leadership": {
       "label": "Our leadership",

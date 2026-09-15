@@ -23,11 +23,12 @@ test("server-renders the Rams Go Green site", async () => {
   assert.doesNotMatch(html, /There[^<]*s a seat for you|href="#meetings"|id="meetings"/);
   assert.doesNotMatch(html, /September 1, 2026|September 5, 2026|>TBD</);
   assert.match(html, /href="\/leadership\/"/);
-  assert.match(html, /src="\/rams-go-green-logo\.png"/);
+  assert.match(html, /src="\/rams-go-green-logo-centered\.png"/);
   assert.doesNotMatch(html, /Our leadership|Rams with some plans|>Jack<|>Sadie</);
   assert.doesNotMatch(html, /Grow here|Give back/);
   assert.match(html, /From the feed/);
-  assert.match(html, /No posts at this time\./);
+  assert.match(html, /Our Instagram is live\. Photos are coming soon\./);
+  assert.match(html, /Visit @(?:<!-- -->)?rams\.go\.green/);
   assert.doesNotMatch(html, /Ready when you are|Make your time at CSU count|See upcoming events/);
   assert.equal((html.match(/class="brand-logo"/g) ?? []).length, 1);
   assert.doesNotMatch(html, /Share the change|Meet your people|Grow something good/);
