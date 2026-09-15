@@ -79,5 +79,12 @@
     "googleSheetCsvUrl": "",
     "fallback": []
   },
+  "signups": {
+    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf-5O8mSECP2BxNsIHy8382KgaYdskB78MpmAqlgslaJnRv5g/viewform",
+    "eventDateEntryId": "1069735323",
+    "label": "Activity signup",
+    "title": "Sign up for an activity.",
+    "intro": "Use this one form for every Rams Go Green cleanup, meeting, or event. When you choose an event on the website, its date is filled in for you."
+  },
   "galleryPhotos": []
 }

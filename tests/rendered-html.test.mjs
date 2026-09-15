@@ -23,6 +23,8 @@ test("server-renders the Rams Go Green site", async () => {
   assert.doesNotMatch(html, /There[^<]*s a seat for you|href="#meetings"|id="meetings"/);
   assert.doesNotMatch(html, /September 1, 2026|September 5, 2026|>TBD</);
   assert.match(html, /href="\/leadership\/"/);
+  assert.match(html, /href="\/signup\/"/);
+  assert.match(html, /Sign up for an activity/);
   assert.match(html, /src="\/rams-go-green-logo-centered\.png"/);
   assert.doesNotMatch(html, /Our leadership|Rams with some plans|>Jack<|>Sadie</);
   assert.doesNotMatch(html, /Grow here|Give back/);
@@ -73,4 +75,17 @@ test("server-renders the admin page", async () => {
   assert.match(html, /Instagram feed/);
   assert.match(html, /github\.com\/jackeckholt-commits\/rams-go-green\/edit\/main\/content\/site\.json/);
   assert.match(html, /only people with access/i);
+  assert.match(html, /Activity signups/);
+  assert.match(html, /Signup form connected/);
+});
+
+test("server-renders the permanent signup form", async () => {
+  const response = await render("/signup");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Activity Signup \| Rams Go Green<\/title>/i);
+  assert.match(html, /Rams Go Green activity signup form/);
+  assert.match(html, /docs\.google\.com\/forms\/d\/e\/1FAIpQLSf-5O8mSECP2BxNsIHy8382KgaYdskB78MpmAqlgslaJnRv5g\/viewform/);
+  assert.match(html, /embedded(?:=|%3D)true/);
+  assert.match(html, /Back to the main site/);
 });

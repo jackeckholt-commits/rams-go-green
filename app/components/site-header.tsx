@@ -4,11 +4,13 @@ import { sitePath } from "../site-path";
 type SiteHeaderProps = {
   onHomePage?: boolean;
   showMeetings?: boolean;
+  currentPage?: "leadership" | "signup";
 };
 
 export function SiteHeader({
   onHomePage = false,
   showMeetings = false,
+  currentPage,
 }: SiteHeaderProps) {
   const sectionLink = (section: string) =>
     onHomePage ? `#${section}` : sitePath(`/#${section}`);
@@ -29,12 +31,20 @@ export function SiteHeader({
         {siteContent.officers.length ? (
           <a
             href={sitePath("/leadership/")}
-            aria-current={onHomePage ? undefined : "page"}
+            aria-current={currentPage === "leadership" ? "page" : undefined}
           >
             Leadership
           </a>
         ) : null}
         <a href={sectionLink("instagram")}>Instagram</a>
+        {siteContent.signups.formUrl ? (
+          <a
+            href={sitePath("/signup/")}
+            aria-current={currentPage === "signup" ? "page" : undefined}
+          >
+            Sign up
+          </a>
+        ) : null}
       </nav>
     </header>
   );

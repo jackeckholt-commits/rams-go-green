@@ -4,6 +4,11 @@ import { getMeetings } from "./meetings";
 import { siteContent } from "./site-content";
 import { sitePath } from "./site-path";
 
+function signupPath(date: string, event: string) {
+  const params = new URLSearchParams({ date, event });
+  return `${sitePath("/signup/")}?${params.toString()}`;
+}
+
 export default async function Home() {
   const meetings = await getMeetings();
   const nextMeeting = meetings[0];
@@ -83,6 +88,19 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="signup-callout section-pad" id="signup">
+        <div>
+          <p className="section-kicker">{siteContent.signups.label}</p>
+          <h2>{siteContent.signups.title}</h2>
+        </div>
+        <div className="signup-callout-copy">
+          <p>{siteContent.signups.intro}</p>
+          <a className="button button-green" href={sitePath("/signup/")}>
+            Open the signup form
+          </a>
+        </div>
+      </section>
+
       {hasMeetings ? (
         <section className="meetings section-pad" id="meetings">
           <div className="meetings-copy">
@@ -108,11 +126,19 @@ export default async function Home() {
                       <dd>{meeting.location}</dd>
                     </div>
                   </dl>
-                  {meeting.link ? (
-                    <a className="detail-link" href={meeting.link}>
-                      Meeting details
+                  <div className="meeting-links">
+                    <a
+                      className="meeting-signup-link"
+                      href={signupPath(meeting.date, meeting.title)}
+                    >
+                      Sign up
                     </a>
-                  ) : null}
+                    {meeting.link ? (
+                      <a className="detail-link" href={meeting.link}>
+                        Meeting details
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </article>
             ))}

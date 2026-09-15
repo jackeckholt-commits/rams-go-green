@@ -28,7 +28,7 @@ export default function LeadershipPage() {
 
   return (
     <main className="leadership-page">
-      <SiteHeader />
+      <SiteHeader currentPage="leadership" />
 
       <section className="leadership-hero section-pad">
         <p className="section-kicker">{pageText.label}</p>

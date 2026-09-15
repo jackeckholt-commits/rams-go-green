@@ -59,6 +59,16 @@ const tasks = [
       "Add the club handle, profile link, and feed widget address when the Instagram account is ready.",
     links: [{ label: "Edit Instagram settings", href: editContentUrl }],
   },
+  {
+    number: "06",
+    title: "Activity signups",
+    description:
+      "One permanent Google Form handles every event. Responses can be sorted by activity date in its connected Google Sheet.",
+    links: [
+      { label: "View signup form", href: siteContent.signups.formUrl },
+      { label: "Open Google Forms", href: "https://docs.google.com/forms/u/0/" },
+    ],
+  },
 ];
 
 export default function AdminPage() {
@@ -94,6 +104,7 @@ export default function AdminPage() {
               <span>{siteContent.meetings.fallback.length} events listed</span>
               <span>{photoCount} officer photos added</span>
               <span>{siteContent.galleryPhotos.length} gallery photos added</span>
+              <span>Signup form connected</span>
             </div>
           </div>
         </section>

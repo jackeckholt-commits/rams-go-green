@@ -58,6 +58,13 @@ type SiteContent = {
     googleSheetCsvUrl: string;
     fallback: Meeting[];
   };
+  signups: {
+    formUrl: string;
+    eventDateEntryId: string;
+    label: string;
+    title: string;
+    intro: string;
+  };
   galleryPhotos: Array<{
     src: string;
     alt: string;

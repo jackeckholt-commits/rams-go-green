@@ -38,6 +38,7 @@ const routes = [
   { pathname: "/rams-go-green/", output: "index.html" },
   { pathname: "/rams-go-green/admin", output: "admin/index.html" },
   { pathname: "/rams-go-green/leadership", output: "leadership/index.html" },
+  { pathname: "/rams-go-green/signup", output: "signup/index.html" },
 ];
 
 for (const route of routes) {
