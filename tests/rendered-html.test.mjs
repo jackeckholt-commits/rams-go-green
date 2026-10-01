@@ -30,7 +30,7 @@ test("server-renders the Rams Go Green site", async () => {
   assert.doesNotMatch(html, /Our leadership|Rams with some plans|>Jack<|>Sadie</);
   assert.doesNotMatch(html, /Grow here|Give back/);
   assert.match(html, /From the feed/);
-  assert.match(html, /src="https:\/\/www\.instagram\.com\/p\/DdR0pbplHYl\/embed\/"/);
+  assert.match(html, /src="https:\/\/www\.instagram\.com\/p\/Dd7Yj-JTFfb\/embed\/"/);
   assert.match(html, /Rams Go Green latest Instagram post/);
   assert.doesNotMatch(html, /Our Instagram is live\. Photos are coming soon\./);
   assert.doesNotMatch(html, /Ready when you are|Make your time at CSU count|See upcoming events/);
