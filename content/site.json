@@ -1,12 +1,13 @@
 {
   "clubName": "Rams Go Green",
-  "logo": "/rams-go-green-logo-centered.png",
+  "logo": "/rams-go-green-logo-plant.png",
   "eyebrow": "A Colorado State University student club",
   "tagline": "Small choices. Stronger community. Greener campus.",
   "intro": "We bring Rams together to care for CSU and Fort Collins through community cleanups, environmental action, and practical sustainability education.",
   "instagramHandle": "rams.go.green",
   "instagramProfileUrl": "https://www.instagram.com/rams.go.green",
   "instagramEmbedUrl": "https://www.instagram.com/p/DdR0pbplHYl/embed/",
+  "groupMeUrl": "https://web.groupme.com/join_group/117465326/HB5wFPDV?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
   "mission": "Our goal is to give students a direct way to contribute to the communities of Colorado State and Fort Collins by cleaning our surroundings, supporting sustainability efforts, and taking part in environmental activism.",
   "pageText": {
     "home": {
@@ -16,6 +17,9 @@
       "aboutLabel": "Why we're here",
       "activitiesLabel": "What we do",
       "activitiesTitle": "Make a difference today.",
+      "joinLabel": "Stay connected",
+      "joinTitle": "Join the GroupMe.",
+      "joinIntro": "Get meeting reminders, activity updates, and last-minute details from Rams Go Green in one place.",
       "meetingsLabel": "Come say hello",
       "meetingsTitle": "There's a seat for you.",
       "meetingsIntro": "We hold one formal planning meeting each month and aim for two or three activities or meetups. No sustainability experience required.",
@@ -78,13 +82,6 @@
   "meetings": {
     "googleSheetCsvUrl": "",
     "fallback": []
-  },
-  "signups": {
-    "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf-5O8mSECP2BxNsIHy8382KgaYdskB78MpmAqlgslaJnRv5g/viewform",
-    "eventDateEntryId": "1069735323",
-    "label": "Activity signup",
-    "title": "Sign up for an activity.",
-    "intro": "Use this one form for every Rams Go Green cleanup, meeting, or event. When you choose an event on the website, its date is filled in for you."
   },
   "galleryPhotos": []
 }

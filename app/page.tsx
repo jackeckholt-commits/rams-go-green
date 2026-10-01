@@ -4,11 +4,6 @@ import { getMeetings } from "./meetings";
 import { siteContent } from "./site-content";
 import { sitePath } from "./site-path";
 
-function signupPath(date: string, event: string) {
-  const params = new URLSearchParams({ date, event });
-  return `${sitePath("/signup/")}?${params.toString()}`;
-}
-
 export default async function Home() {
   const meetings = await getMeetings();
   const nextMeeting = meetings[0];
@@ -88,15 +83,20 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="signup-callout section-pad" id="signup">
+      <section className="groupme-callout section-pad" id="join">
         <div>
-          <p className="section-kicker">{siteContent.signups.label}</p>
-          <h2>{siteContent.signups.title}</h2>
+          <p className="section-kicker">{pageText.joinLabel}</p>
+          <h2>{pageText.joinTitle}</h2>
         </div>
-        <div className="signup-callout-copy">
-          <p>{siteContent.signups.intro}</p>
-          <a className="button button-green" href={sitePath("/signup/")}>
-            Open the signup form
+        <div className="groupme-callout-copy">
+          <p>{pageText.joinIntro}</p>
+          <a
+            className="button button-green"
+            href={siteContent.groupMeUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Join the GroupMe
           </a>
         </div>
       </section>
@@ -126,19 +126,13 @@ export default async function Home() {
                       <dd>{meeting.location}</dd>
                     </div>
                   </dl>
-                  <div className="meeting-links">
-                    <a
-                      className="meeting-signup-link"
-                      href={signupPath(meeting.date, meeting.title)}
-                    >
-                      Sign up
-                    </a>
-                    {meeting.link ? (
+                  {meeting.link ? (
+                    <div className="meeting-links">
                       <a className="detail-link" href={meeting.link}>
                         Meeting details
                       </a>
-                    ) : null}
-                  </div>
+                    </div>
+                  ) : null}
                 </div>
               </article>
             ))}

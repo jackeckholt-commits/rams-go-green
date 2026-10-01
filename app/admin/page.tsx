@@ -64,12 +64,12 @@ const tasks = [
   },
   {
     number: "06",
-    title: "Activity signups",
+    title: "GroupMe link",
     description:
-      "One permanent Google Form handles every event. Responses can be sorted by activity date in its connected Google Sheet.",
+      "Keep the public join button connected to the club's current GroupMe invitation.",
     links: [
-      { label: "View signup form", href: siteContent.signups.formUrl },
-      { label: "Open Google Forms", href: "https://docs.google.com/forms/u/0/" },
+      { label: "Open GroupMe", href: siteContent.groupMeUrl },
+      { label: "Edit GroupMe link", href: editContentUrl },
     ],
   },
 ];
@@ -107,7 +107,7 @@ export default function AdminPage() {
               <span>{siteContent.meetings.fallback.length} events listed</span>
               <span>{photoCount} officer photos added</span>
               <span>{siteContent.galleryPhotos.length} gallery photos added</span>
-              <span>Signup form connected</span>
+              <span>GroupMe link connected</span>
             </div>
           </div>
         </section>

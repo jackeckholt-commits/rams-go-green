@@ -18,6 +18,7 @@ type SiteContent = {
   instagramHandle: string;
   instagramProfileUrl: string;
   instagramEmbedUrl: string;
+  groupMeUrl: string;
   mission: string;
   pageText: {
     home: {
@@ -27,6 +28,9 @@ type SiteContent = {
       aboutLabel: string;
       activitiesLabel: string;
       activitiesTitle: string;
+      joinLabel: string;
+      joinTitle: string;
+      joinIntro: string;
       meetingsLabel: string;
       meetingsTitle: string;
       meetingsIntro: string;
@@ -57,13 +61,6 @@ type SiteContent = {
   meetings: {
     googleSheetCsvUrl: string;
     fallback: Meeting[];
-  };
-  signups: {
-    formUrl: string;
-    eventDateEntryId: string;
-    label: string;
-    title: string;
-    intro: string;
   };
   galleryPhotos: Array<{
     src: string;

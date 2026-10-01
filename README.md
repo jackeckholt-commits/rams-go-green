@@ -23,7 +23,7 @@ The most common sections are:
 - `activities` — the three activity cards.
 - `officers` — names, roles, biographies, and photo paths.
 - `meetings.fallback` — meeting dates, times, locations, and details.
-- `signups` — the permanent Google Form connection and signup-page wording.
+- `groupMeUrl` — the club's public GroupMe invitation.
 - `galleryPhotos` — club photos and captions.
 
 Keep the quotation marks and commas in place. Change only the text between the
@@ -83,17 +83,11 @@ local list:
 
 The local meetings remain as a backup if the sheet cannot load.
 
-## Activity signups
+## GroupMe link
 
-The website uses one permanent Google Form for every activity. Each meeting or
-event automatically gets a **Sign up** button. That button opens the same form
-and fills in the activity date, so a new form does not need to be created each
-week.
-
-Responses stay together in the Google Sheet connected to the form. Filter the
-sheet by the activity-date column to view one event at a time. The form address
-and its date-question ID are grouped in the `signups` section of
-`content/site.json`.
+The public **Join GroupMe** buttons use the `groupMeUrl` value in
+`content/site.json`. Replace that one address if the club creates a new GroupMe
+invitation; the header and home-page button update together.
 
 ## Instagram feed
 

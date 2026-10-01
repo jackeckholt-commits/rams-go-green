@@ -4,7 +4,7 @@ import { sitePath } from "../site-path";
 type SiteHeaderProps = {
   onHomePage?: boolean;
   showMeetings?: boolean;
-  currentPage?: "leadership" | "signup";
+  currentPage?: "leadership";
 };
 
 export function SiteHeader({
@@ -37,12 +37,13 @@ export function SiteHeader({
           </a>
         ) : null}
         <a href={sectionLink("instagram")}>Instagram</a>
-        {siteContent.signups.formUrl ? (
+        {siteContent.groupMeUrl ? (
           <a
-            href={sitePath("/signup/")}
-            aria-current={currentPage === "signup" ? "page" : undefined}
+            href={siteContent.groupMeUrl}
+            target="_blank"
+            rel="noreferrer"
           >
-            Sign up
+            Join GroupMe
           </a>
         ) : null}
       </nav>
