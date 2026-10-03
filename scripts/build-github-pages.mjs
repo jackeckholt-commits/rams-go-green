@@ -4,7 +4,6 @@ import path from "node:path";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(projectRoot, "github-pages");
-const githubBasePath = "/rams-go-green";
 
 async function copyDirectoryContents(source, destination) {
   await mkdir(destination, { recursive: true });
@@ -22,22 +21,15 @@ async function copyDirectoryContents(source, destination) {
 await rm(outputDirectory, { recursive: true, force: true });
 await mkdir(outputDirectory, { recursive: true });
 await copyDirectoryContents(path.join(projectRoot, "dist", "client"), outputDirectory);
-
-// GitHub Pages already serves this artifact below /rams-go-green. Vinext puts
-// base-path assets in a matching subfolder, so move those files to the artifact
-// root to avoid serving them from /rams-go-green/rams-go-green.
-const nestedBasePath = path.join(outputDirectory, githubBasePath.slice(1));
-await copyDirectoryContents(nestedBasePath, outputDirectory);
-await rm(nestedBasePath, { recursive: true, force: true });
 await copyDirectoryContents(path.join(projectRoot, "public"), outputDirectory);
 
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("github-pages", Date.now().toString());
 const { default: worker } = await import(workerUrl.href);
 const routes = [
-  { pathname: "/rams-go-green/", output: "index.html" },
-  { pathname: "/rams-go-green/admin", output: "admin/index.html" },
-  { pathname: "/rams-go-green/leadership", output: "leadership/index.html" },
+  { pathname: "/", output: "index.html" },
+  { pathname: "/admin", output: "admin/index.html" },
+  { pathname: "/leadership", output: "leadership/index.html" },
 ];
 
 for (const route of routes) {
@@ -62,9 +54,10 @@ await writeFile(path.join(outputDirectory, ".nojekyll"), "");
 
 for (const route of routes) {
   const html = await readFile(path.join(outputDirectory, route.output), "utf8");
-  const assetPattern = /(?:href|src)="\/rams-go-green\/([^"?#]+)"/g;
+  const assetPattern = /(?:href|src)="\/([^"?#]+)"/g;
 
   for (const match of html.matchAll(assetPattern)) {
+    if (match[1].startsWith("/")) continue;
     await access(path.join(outputDirectory, match[1]));
   }
 }
