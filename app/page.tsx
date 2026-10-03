@@ -203,6 +203,7 @@ export default async function Home() {
                 src={siteContent.instagramEmbedUrl}
                 title={`${siteContent.clubName} latest Instagram post`}
                 loading="lazy"
+                scrolling="no"
               />
             ) : (
               <div className="instagram-empty">

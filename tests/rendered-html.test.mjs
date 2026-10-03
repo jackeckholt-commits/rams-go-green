@@ -25,7 +25,7 @@ test("server-renders the Rams Go Green site", async () => {
   assert.match(html, /href="\/leadership\/"/);
   assert.match(html, /Join GroupMe/);
   assert.match(html, /web\.groupme\.com\/join_group\/117465326\/HB5wFPDV/);
-  assert.match(html, /src="\/rams-go-green-logo-plant\.png"/);
+  assert.match(html, /src="\/rams-go-green-logo-real\.jpg"/);
   assert.doesNotMatch(html, /href="\/signup\/"|Sign up for an activity|docs\.google\.com\/forms/);
   assert.doesNotMatch(html, /Our leadership|Rams with some plans|>Jack<|>Sadie</);
   assert.doesNotMatch(html, /Grow here|Give back/);

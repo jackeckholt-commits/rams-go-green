@@ -781,28 +781,27 @@ h1 em {
 }
 
 .instagram-post-shell {
-  background: var(--gold-pale);
-  box-shadow: 22px 22px 0 var(--gold);
   justify-self: end;
-  max-width: 590px;
-  padding: 18px;
+  max-width: 540px;
+  overflow: hidden;
   width: 100%;
 }
 
 .instagram-post-meta {
   align-items: center;
-  color: var(--green);
+  color: var(--stone);
   display: flex;
   justify-content: space-between;
-  padding: 4px 4px 18px;
+  padding: 0 0 18px;
 }
 
 .instagram-post-meta span {
-  color: var(--green-bright);
+  color: var(--gold);
 }
 
 .instagram-post-meta a {
   border-bottom: 1px solid currentColor;
+  color: var(--stone);
   font-size: 0.78rem;
   font-weight: 750;
   padding-bottom: 3px;
@@ -839,9 +838,10 @@ h1 em {
   background: var(--white);
   border: 0;
   display: block;
+  height: clamp(1020px, 95vw, 1110px);
   margin: 0 auto;
-  max-width: 554px;
-  min-height: 820px;
+  max-width: 540px;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -1232,15 +1232,14 @@ footer > a:last-child {
   }
 
   .instagram-post-shell {
-    box-shadow: 10px 10px 0 var(--gold);
-    padding: 10px;
+    overflow: hidden;
   }
 
   .instagram-post-meta {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
-    padding: 6px 6px 16px;
+    padding: 0 0 16px;
   }
 
   .instagram-profile-link {
@@ -1248,7 +1247,7 @@ footer > a:last-child {
   }
 
   .instagram-widget {
-    min-height: 720px;
+    height: 1020px;
   }
 
   footer {
