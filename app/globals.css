@@ -112,6 +112,10 @@ nav a[aria-current="page"] {
   text-decoration: underline;
 }
 
+.nav-label-short {
+  display: none;
+}
+
 .hero {
   background: var(--green);
   color: var(--white);
@@ -1161,21 +1165,48 @@ footer > a:last-child {
 
 @media (max-width: 640px) {
   .site-header {
-    gap: 14px;
-    grid-template-columns: 1fr;
-    min-height: 68px;
-    padding-bottom: 16px;
-    padding-top: 16px;
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    min-height: 72px;
+    padding: max(12px, env(safe-area-inset-top)) 18px 12px;
   }
 
   nav {
-    flex-wrap: wrap;
-    gap: 12px 20px;
-    justify-self: start;
+    align-items: center;
+    flex: 1;
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: flex-start;
+    justify-self: auto;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    flex: 0 0 auto;
+    font-size: 0.72rem;
+  }
+
+  nav a:last-child {
+    background: var(--gold);
+    border-radius: 999px;
+    color: var(--green-dark);
+    padding: 8px 10px;
   }
 
   .brand {
-    font-size: 0.86rem;
+    flex: 0 0 auto;
+  }
+
+  .brand span {
+    display: none;
   }
 
   .brand-mark {
@@ -1184,21 +1215,78 @@ footer > a:last-child {
   }
 
   .brand-logo {
-    height: 36px;
-    width: 36px;
+    height: 34px;
+    width: 34px;
+  }
+
+  .nav-label-full {
+    display: none;
+  }
+
+  .nav-label-short {
+    display: inline;
   }
 
   .hero {
-    min-height: 760px;
-    padding-top: 72px;
+    gap: 52px;
+    min-height: auto;
+    padding: 62px 24px 82px;
+  }
+
+  .hero-copy {
+    overflow: hidden;
+  }
+
+  .hero.hero-no-meetings {
+    padding-bottom: 82px;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
   }
 
   h1 {
-    font-size: clamp(4.2rem, 22vw, 6rem);
+    font-size: clamp(4rem, 21vw, 5.4rem);
+    line-height: 0.85;
+  }
+
+  .hero-intro {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin: 32px 0 26px;
+  }
+
+  .hero-values {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-top: 18px;
+    width: 100%;
+  }
+
+  .hero-values li {
+    border: 1px solid rgba(184, 179, 169, 0.28);
+    border-radius: 999px;
+    font-size: clamp(0.5rem, 2.2vw, 0.64rem);
+    letter-spacing: 0.045em;
+    padding: 8px 4px;
+    text-align: center;
+  }
+
+  .hero-values li + li::before {
+    display: none;
   }
 
   .hero-art {
-    min-height: 280px;
+    min-height: 250px;
+  }
+
+  .hero-logo {
+    box-shadow: 0 0 0 12px rgba(198, 198, 119, 0.08), 0 26px 64px rgba(0, 0, 0, 0.18);
+    height: min(270px, 70vw);
+    width: min(270px, 70vw);
   }
 
   .meeting-ribbon {

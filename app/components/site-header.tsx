@@ -43,7 +43,8 @@ export function SiteHeader({
             target="_blank"
             rel="noreferrer"
           >
-            Join GroupMe
+            <span className="nav-label-full">Join GroupMe</span>
+            <span className="nav-label-short">GroupMe</span>
           </a>
         ) : null}
       </nav>
