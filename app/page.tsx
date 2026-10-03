@@ -160,36 +160,57 @@ export default async function Home() {
       ) : null}
 
       <section className="instagram section-pad" id="instagram">
-        <div className="instagram-heading">
-          <div>
+        <div className="instagram-layout">
+          <div className="instagram-copy">
             <p className="section-kicker">{pageText.instagramLabel}</p>
             <h2>{pageText.instagramTitle}</h2>
-          </div>
-          {siteContent.instagramProfileUrl ? (
-            <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
-              {siteContent.instagramHandle}
-            </a>
-          ) : (
-            <span className="instagram-coming-soon">{siteContent.instagramHandle}</span>
-          )}
-        </div>
-        {siteContent.instagramEmbedUrl ? (
-          <iframe
-            className="instagram-widget"
-            src={siteContent.instagramEmbedUrl}
-            title={`${siteContent.clubName} latest Instagram post`}
-            loading="lazy"
-          />
-        ) : (
-          <div className="instagram-empty">
-            <p>{pageText.instagramEmpty}</p>
+            <p className="instagram-intro">
+              See club projects, meeting moments, and campus action as it happens.
+            </p>
+            <div className="instagram-profile">
+              <img src={sitePath(siteContent.logo)} alt="" />
+              <div>
+                <span>Instagram</span>
+                <strong>@{siteContent.instagramHandle}</strong>
+              </div>
+            </div>
             {siteContent.instagramProfileUrl ? (
-              <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
-                Visit @{siteContent.instagramHandle}
+              <a
+                className="instagram-profile-link"
+                href={siteContent.instagramProfileUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Follow the club
               </a>
-            ) : null}
+            ) : (
+              <span className="instagram-coming-soon">@{siteContent.instagramHandle}</span>
+            )}
           </div>
-        )}
+
+          <div className="instagram-post-shell">
+            <div className="instagram-post-meta">
+              <span>Latest post</span>
+              {siteContent.instagramProfileUrl ? (
+                <a href={siteContent.instagramProfileUrl} target="_blank" rel="noreferrer">
+                  Open on Instagram
+                </a>
+              ) : null}
+            </div>
+            {siteContent.instagramEmbedUrl ? (
+              <iframe
+                className="instagram-widget"
+                src={siteContent.instagramEmbedUrl}
+                title={`${siteContent.clubName} latest Instagram post`}
+                loading="lazy"
+              />
+            ) : (
+              <div className="instagram-empty">
+                <p>{pageText.instagramEmpty}</p>
+              </div>
+            )}
+          </div>
+        </div>
       </section>
 
       <SiteFooter onHomePage />
