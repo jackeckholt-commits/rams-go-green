@@ -1284,7 +1284,6 @@ footer > a:last-child {
   }
 
   .hero-logo {
-    box-shadow: 0 0 0 12px rgba(198, 198, 119, 0.08), 0 26px 64px rgba(0, 0, 0, 0.18);
     height: min(270px, 70vw);
     width: min(270px, 70vw);
   }
