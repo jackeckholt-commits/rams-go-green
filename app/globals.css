@@ -1149,6 +1149,10 @@ footer > a:last-child {
     justify-self: start;
   }
 
+  .instagram-widget {
+    height: clamp(680px, calc(100vw + 270px), 900px);
+  }
+
   .admin-intro,
   .admin-help {
     grid-template-columns: 1fr;
@@ -1244,10 +1248,6 @@ footer > a:last-child {
 
   .instagram-profile-link {
     width: 100%;
-  }
-
-  .instagram-widget {
-    height: 1020px;
   }
 
   footer {
